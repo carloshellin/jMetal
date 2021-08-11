@@ -1,5 +1,11 @@
 package org.uma.jmetal.algorithm.multiobjective.nsgaii;
 
+import java.util.Comparator;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.algorithm.AlgorithmBuilder;
 import org.uma.jmetal.operator.crossover.CrossoverOperator;
 import org.uma.jmetal.operator.mutation.MutationOperator;
@@ -12,9 +18,6 @@ import org.uma.jmetal.util.comparator.RankingAndCrowdingDistanceComparator;
 import org.uma.jmetal.util.errorchecking.JMetalException;
 import org.uma.jmetal.util.evaluator.SolutionListEvaluator;
 import org.uma.jmetal.util.evaluator.impl.SequentialSolutionListEvaluator;
-
-import java.util.Comparator;
-import java.util.List;
 
 /**
  * @author Antonio J. Nebro <antonio@lcc.uma.es>
@@ -42,8 +45,9 @@ public class NSGAIIBuilder<S extends Solution<?>> implements AlgorithmBuilder<NS
   /**
    * NSGAIIBuilder constructor
    */
-  public NSGAIIBuilder(Problem<S> problem, CrossoverOperator<S> crossoverOperator,
-      MutationOperator<S> mutationOperator, int populationSize) {
+  @JsonCreator
+  public NSGAIIBuilder(@JsonProperty(value="problem", required=true) Problem<S> problem, @JsonProperty(value="crossoverOperator", required=true) CrossoverOperator<S> crossoverOperator,
+  @JsonProperty(value="mutationOperator", required=true) MutationOperator<S> mutationOperator, @JsonProperty(value="populationSize", required=true) int populationSize) {
     this.problem = problem;
     maxEvaluations = 25000;
     this.populationSize = populationSize;
