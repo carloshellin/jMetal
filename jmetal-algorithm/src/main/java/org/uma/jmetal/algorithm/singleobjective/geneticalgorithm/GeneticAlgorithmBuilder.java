@@ -1,6 +1,12 @@
 package org.uma.jmetal.algorithm.singleobjective.geneticalgorithm;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.algorithm.Algorithm;
+import org.uma.jmetal.algorithm.AlgorithmBuilder;
 import org.uma.jmetal.operator.crossover.CrossoverOperator;
 import org.uma.jmetal.operator.mutation.MutationOperator;
 import org.uma.jmetal.operator.selection.SelectionOperator;
@@ -11,12 +17,10 @@ import org.uma.jmetal.util.errorchecking.JMetalException;
 import org.uma.jmetal.util.evaluator.SolutionListEvaluator;
 import org.uma.jmetal.util.evaluator.impl.SequentialSolutionListEvaluator;
 
-import java.util.List;
-
 /**
  * Created by ajnebro on 10/12/14.
  */
-public class GeneticAlgorithmBuilder<S extends Solution<?>> {
+public class GeneticAlgorithmBuilder<S extends Solution<?>> implements AlgorithmBuilder<Algorithm<S>> {
   public enum GeneticAlgorithmVariant {GENERATIONAL, STEADY_STATE}
   /**
    * Builder class
@@ -35,9 +39,10 @@ public class GeneticAlgorithmBuilder<S extends Solution<?>> {
   /**
    * Builder constructor
    */
-  public GeneticAlgorithmBuilder(Problem<S> problem,
-      CrossoverOperator<S> crossoverOperator,
-      MutationOperator<S> mutationOperator) {
+  @JsonCreator
+  public GeneticAlgorithmBuilder(@JsonProperty(value="problem", required=true) Problem<S> problem,
+      @JsonProperty(value="crossoverOperator", required=true) CrossoverOperator<S> crossoverOperator,
+      @JsonProperty(value="mutationOperator", required=true) MutationOperator<S> mutationOperator) {
     this.problem = problem;
     maxEvaluations = 25000;
     populationSize = 100;
