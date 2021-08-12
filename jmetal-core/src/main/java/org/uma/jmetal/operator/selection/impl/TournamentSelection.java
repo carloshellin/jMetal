@@ -1,14 +1,16 @@
 package org.uma.jmetal.operator.selection.impl;
 
+import java.util.Comparator;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.operator.selection.SelectionOperator;
 import org.uma.jmetal.solution.Solution;
 import org.uma.jmetal.util.SolutionListUtils;
 import org.uma.jmetal.util.SolutionUtils;
 import org.uma.jmetal.util.checking.Check;
 import org.uma.jmetal.util.comparator.DominanceComparator;
-
-import java.util.Comparator;
-import java.util.List;
 
 /**
  * @author Juanjo
@@ -19,6 +21,7 @@ import java.util.List;
 @SuppressWarnings("serial")
 @Deprecated
 public class TournamentSelection<S extends Solution<?>> implements SelectionOperator<List<S>,S> {
+  @JsonProperty(value="comparator")
   private Comparator<S> comparator;
 
   private final int n_arity;
