@@ -150,4 +150,14 @@ public class NSGAII45<S extends Solution<?>> implements Algorithm<List<S>> {
   public void finishProgress() {
     
   }
+
+  @Override
+  public void initProgress() {
+    
+  }
+
+  @Override
+  public void updateProgress() {
+    
+  }
 }
