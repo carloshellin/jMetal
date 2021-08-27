@@ -133,11 +133,11 @@ public class DMOPSO implements Algorithm<List<DoubleSolution>> {
     return swarm ;
   }
 
-  protected void initProgress() {
+  public void initProgress() {
     iterations = 1 ;
   }
 
-  protected void updateProgress() {
+  public void updateProgress() {
     iterations ++ ;
   }
 
@@ -517,5 +517,10 @@ public class DMOPSO implements Algorithm<List<DoubleSolution>> {
 
   @Override public String getDescription() {
     return "MOPSO with decomposition" ;
+  }
+
+  @Override
+  public void finishProgress() {
+    
   }
 }

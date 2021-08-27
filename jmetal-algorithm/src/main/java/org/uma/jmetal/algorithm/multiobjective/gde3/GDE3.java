@@ -62,12 +62,12 @@ public class GDE3 extends AbstractDifferentialEvolution<List<DoubleSolution>> {
   }
 
   @Override
-  protected void initProgress() {
+  public void initProgress() {
     evaluations = getMaxPopulationSize();
   }
 
   @Override
-  protected void updateProgress() {
+  public void updateProgress() {
     evaluations += getMaxPopulationSize();
   }
 
@@ -180,5 +180,10 @@ public class GDE3 extends AbstractDifferentialEvolution<List<DoubleSolution>> {
   @Override
   public String getDescription() {
     return "Generalized Differential Evolution version 3";
+  }
+
+  @Override
+  public void finishProgress() {
+    
   }
 }

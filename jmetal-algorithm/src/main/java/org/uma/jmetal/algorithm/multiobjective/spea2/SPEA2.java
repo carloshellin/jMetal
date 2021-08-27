@@ -45,12 +45,12 @@ public class SPEA2<S extends Solution<?>> extends AbstractGeneticAlgorithm<S, Li
   }
 
   @Override
-  protected void initProgress() {
+  public void initProgress() {
     iterations = 1;
   }
 
   @Override
-  protected void updateProgress() {
+  public void updateProgress() {
     iterations++;
   }
 
@@ -111,5 +111,10 @@ public class SPEA2<S extends Solution<?>> extends AbstractGeneticAlgorithm<S, Li
 
   @Override public String getDescription() {
     return "Strength Pareto. Evolutionary Algorithm" ;
+  }
+
+  @Override
+  public void finishProgress() {
+    
   }
 }

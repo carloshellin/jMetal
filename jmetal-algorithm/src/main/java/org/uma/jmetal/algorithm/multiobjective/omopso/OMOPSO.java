@@ -76,12 +76,12 @@ public class OMOPSO extends AbstractParticleSwarmOptimization<DoubleSolution, Li
   }
 
 
-  @Override protected void initProgress() {
+  @Override public void initProgress() {
     currentIteration = 1;
     crowdingDistance.compute(leaderArchive.getSolutionList());
   }
 
-  @Override protected void updateProgress() {
+  @Override public void updateProgress() {
     currentIteration += 1;
     crowdingDistance.compute(leaderArchive.getSolutionList());
   }
@@ -246,6 +246,12 @@ public class OMOPSO extends AbstractParticleSwarmOptimization<DoubleSolution, Li
 
   @Override public String getDescription() {
     return "Optimized MOPSO" ;
+  }
+
+
+  @Override
+  public void finishProgress() {
+    
   }
 
 }

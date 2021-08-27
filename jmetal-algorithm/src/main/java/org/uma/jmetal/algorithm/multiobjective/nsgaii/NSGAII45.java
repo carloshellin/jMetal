@@ -140,4 +140,14 @@ public class NSGAII45<S extends Solution<?>> implements Algorithm<List<S>> {
   public String getDescription() {
     return "Nondominated Sorting Genetic Algorithm version II. Version not using the AbstractGeneticAlgorithm template";
   }
+
+  @Override
+  public void updateProgress() {
+    
+  }
+
+  @Override
+  public void finishProgress() {
+    
+  }
 }

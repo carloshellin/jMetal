@@ -63,7 +63,7 @@ public class MOMBI2<S extends Solution<?>> extends MOMBI<S> {
   }
 
   @Override
-  protected void initProgress() {
+  public void initProgress() {
     super.initProgress();
     this.updateMax(this.getPopulation());
   }

@@ -46,11 +46,11 @@ public class SMSEMOA<S extends Solution<?>> extends AbstractGeneticAlgorithm<S, 
     this.hypervolume = hypervolumeImplementation ;
   }
 
-  @Override protected void initProgress() {
+  @Override public void initProgress() {
     evaluations = getMaxPopulationSize() ;
   }
 
-  @Override protected void updateProgress() {
+  @Override public void updateProgress() {
     evaluations++ ;
   }
 
@@ -126,5 +126,10 @@ public class SMSEMOA<S extends Solution<?>> extends AbstractGeneticAlgorithm<S, 
 
   @Override public String getDescription() {
     return "S metric selection EMOA" ;
+  }
+
+  @Override
+  public void finishProgress() {
+    
   }
 }

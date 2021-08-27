@@ -106,4 +106,9 @@ public class SteadyStateGeneticAlgorithm<S extends Solution<?>> extends Abstract
   @Override public String getDescription() {
     return "Steady-State Genetic Algorithm" ;
   }
+
+  @Override
+  public void finishProgress() {
+    
+  }
 }
