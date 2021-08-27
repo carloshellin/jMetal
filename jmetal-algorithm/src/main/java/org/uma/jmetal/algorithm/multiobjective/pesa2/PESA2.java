@@ -48,11 +48,11 @@ public class PESA2<S extends Solution<?>> extends AbstractGeneticAlgorithm<S, Li
     archive = new AdaptiveGridArchive<>(this.archiveSize, this.biSections,problem.getNumberOfObjectives()) ;
   }
 
-  @Override protected void initProgress() {
+  @Override public void initProgress() {
     evaluations = getMaxPopulationSize() ;
   }
 
-  @Override protected void updateProgress() {
+  @Override public void updateProgress() {
     evaluations += getMaxPopulationSize() ;
   }
 

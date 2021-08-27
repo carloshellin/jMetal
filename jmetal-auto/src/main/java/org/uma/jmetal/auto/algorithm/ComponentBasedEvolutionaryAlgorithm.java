@@ -95,7 +95,7 @@ public class ComponentBasedEvolutionaryAlgorithm<S extends Solution<?>>
   }
 
   @Override
-  protected void initProgress() {
+  public void initProgress() {
     evaluations = population.size();
 
     attributes.put("EVALUATIONS", evaluations);
@@ -107,7 +107,7 @@ public class ComponentBasedEvolutionaryAlgorithm<S extends Solution<?>>
   }
 
   @Override
-  protected void updateProgress() {
+  public void updateProgress() {
     evaluations += variation.getOffspringPopulationSize();
 
     attributes.put("EVALUATIONS", evaluations);

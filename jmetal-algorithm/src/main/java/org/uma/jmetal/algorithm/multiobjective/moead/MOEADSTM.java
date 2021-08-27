@@ -400,4 +400,14 @@ public class MOEADSTM extends AbstractMOEAD<DoubleSolution> {
   public String getDescription() {
     return "Multi-Objective Evolutionary Algorithm based on Decomposition. Version with Stable Matching Model";
   }
+
+  @Override
+  public void initProgress() {
+    
+  }
+
+  @Override
+  public void updateProgress() {
+    
+  }
 }

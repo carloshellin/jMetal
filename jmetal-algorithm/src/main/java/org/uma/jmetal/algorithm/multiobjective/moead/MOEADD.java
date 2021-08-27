@@ -1424,4 +1424,14 @@ public class MOEADD<S extends DoubleSolution> extends AbstractMOEAD<S> {
     return ranking;
   }
 
+  @Override
+  public void initProgress() {
+    
+  }
+
+  @Override
+  public void updateProgress() {
+    
+  }
+
 } // MOEADD

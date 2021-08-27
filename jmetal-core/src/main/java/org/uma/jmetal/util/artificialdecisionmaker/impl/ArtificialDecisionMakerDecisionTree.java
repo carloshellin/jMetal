@@ -132,13 +132,13 @@ public class ArtificialDecisionMakerDecisionTree<S extends Solution<?>> extends 
 
 
   @Override
-  protected void initProgress() {
+  public void initProgress() {
     evaluations =0;
     varyingProbability = considerationProbability;
   }
 
   @Override
-  protected void updateProgress() {
+  public void updateProgress() {
     evaluations++;
   }
 

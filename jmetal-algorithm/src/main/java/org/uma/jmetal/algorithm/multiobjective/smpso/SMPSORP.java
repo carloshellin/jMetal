@@ -174,7 +174,7 @@ public class SMPSORP
   }
 
   @Override
-  protected void initProgress() {
+  public void initProgress() {
     evaluations = swarmSize;
     updateLeadersDensityEstimator();
 
@@ -189,7 +189,7 @@ public class SMPSORP
   }
 
   @Override
-  protected void updateProgress() {
+  public void updateProgress() {
     evaluations += swarmSize;
     updateLeadersDensityEstimator();
 

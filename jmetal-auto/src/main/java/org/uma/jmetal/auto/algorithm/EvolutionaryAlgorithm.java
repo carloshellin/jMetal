@@ -131,7 +131,7 @@ public class EvolutionaryAlgorithm<S extends Solution<?>>
     }
   }
 
-  protected void initProgress() {
+  public void initProgress() {
     evaluations = population.size();
 
     updateArchive(population);
@@ -141,7 +141,7 @@ public class EvolutionaryAlgorithm<S extends Solution<?>>
     attributes.put("COMPUTING_TIME", getCurrentComputingTime());
   }
 
-  protected void updateProgress() {
+  public void updateProgress() {
     evaluations += variation.getOffspringPopulationSize();
 
     attributes.put("EVALUATIONS", evaluations);

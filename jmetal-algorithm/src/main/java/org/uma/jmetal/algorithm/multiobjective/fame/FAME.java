@@ -146,7 +146,7 @@ public class FAME<S extends DoubleSolution> extends SteadyStateNSGAII<S> {
   }
 
   @Override
-  protected void updateProgress() {
+  public void updateProgress() {
     evaluations++;
     if (window == windowSize) {
       for (int x = 0; x < operators; x++) {

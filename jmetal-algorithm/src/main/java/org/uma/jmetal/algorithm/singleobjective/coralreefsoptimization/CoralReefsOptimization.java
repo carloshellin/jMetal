@@ -44,12 +44,12 @@ public class CoralReefsOptimization<S>
 	private static final long serialVersionUID = 3013223456538143239L;
 
 	@Override
-	protected void initProgress() {
+	public void initProgress() {
 		iterations = 0;
 	}
 
 	@Override
-	protected void updateProgress() {
+	public void updateProgress() {
 		iterations++;
 	}
 

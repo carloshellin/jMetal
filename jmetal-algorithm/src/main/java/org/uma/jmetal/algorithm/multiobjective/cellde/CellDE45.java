@@ -153,12 +153,12 @@ public class CellDE45 implements Algorithm<List<DoubleSolution>> {
     return evaluator.evaluate(population, problem);
   }
 
-  protected void initProgress() {
+  public void initProgress() {
     evaluations = populationSize;
     currentIndividual=0;
   }
 
-  protected void updateProgress() {
+  public void updateProgress() {
     evaluations++;
     currentIndividual=(currentIndividual+1)%populationSize;
   }

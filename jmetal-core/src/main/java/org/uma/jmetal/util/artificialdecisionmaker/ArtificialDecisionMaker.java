@@ -24,8 +24,8 @@ public abstract class ArtificialDecisionMaker<S, R> implements Algorithm<R> {
 
   protected abstract List<Double> generatePreferenceInformation();
   protected abstract boolean isStoppingConditionReached();
-  protected abstract void initProgress();
-  protected abstract void updateProgress();
+  public abstract void initProgress();
+  public abstract void updateProgress();
   protected abstract List<Integer> relevantObjectiveFunctions(R front);
   protected abstract List<Double> calculateReferencePoints(
       List<Integer> indexOfRelevantObjectiveFunctions,R front,List<S> paretoOptimalSolutions);

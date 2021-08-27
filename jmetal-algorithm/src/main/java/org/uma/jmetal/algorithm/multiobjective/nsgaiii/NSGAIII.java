@@ -58,12 +58,12 @@ public class NSGAIII<S extends Solution<?>> extends AbstractGeneticAlgorithm<S, 
   }
 
   @Override
-  protected void initProgress() {
+  public void initProgress() {
     iterations = 1 ;
   }
 
   @Override
-  protected void updateProgress() {
+  public void updateProgress() {
     iterations++ ;
   }
 

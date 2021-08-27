@@ -161,11 +161,11 @@ public class CovarianceMatrixAdaptationEvolutionStrategy
     }
   }
 
-  @Override protected void initProgress() {
+  @Override public void initProgress() {
     evaluations = lambda;
   }
 
-  @Override protected void updateProgress() {
+  @Override public void updateProgress() {
     evaluations += lambda;
     updateInternalParameters();
   }

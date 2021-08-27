@@ -40,11 +40,11 @@ public class ElitistEvolutionStrategy<S extends Solution<?>> extends AbstractEvo
     comparator = new ObjectiveComparator<S>(0);
   }
 
-  @Override protected void initProgress() {
+  @Override public void initProgress() {
     evaluations = mu;
   }
 
-  @Override protected void updateProgress() {
+  @Override public void updateProgress() {
     evaluations += lambda;
   }
 

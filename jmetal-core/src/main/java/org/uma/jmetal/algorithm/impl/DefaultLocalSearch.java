@@ -76,4 +76,14 @@ public class DefaultLocalSearch<S extends Solution<?>> implements Algorithm<S> {
   public String getDescription() {
     return "Default local search";
   }
+
+  @Override
+  public void initProgress() {
+    
+  }
+
+  @Override
+  public void updateProgress() {
+    
+  }
 }

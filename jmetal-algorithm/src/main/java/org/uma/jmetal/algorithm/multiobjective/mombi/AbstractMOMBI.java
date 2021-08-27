@@ -59,12 +59,12 @@ public abstract class AbstractMOMBI<S extends Solution<?>> extends AbstractGenet
 	}
 
 	@Override
-	protected void initProgress() {
+	public void initProgress() {
 		this.iterations = 1;
 	}
 
 	@Override
-	protected void updateProgress() {
+	public void updateProgress() {
 		this.iterations+=1;
 	}
 

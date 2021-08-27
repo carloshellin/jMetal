@@ -491,5 +491,13 @@ public class ABYSS extends AbstractScatterSearch<DoubleSolution, List<DoubleSolu
   @Override public String getDescription() {
     return "Archived based hYbrid Scatter Search Algorithm" ;
   }
+
+  @Override
+  public void initProgress() {
+  }
+
+  @Override
+  public void updateProgress() {    
+  }
 }
 

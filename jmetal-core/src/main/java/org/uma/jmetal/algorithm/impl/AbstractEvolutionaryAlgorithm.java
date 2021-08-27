@@ -31,9 +31,9 @@ public abstract class AbstractEvolutionaryAlgorithm<S, R>  implements Algorithm<
     return problem ;
   }
 
-  protected abstract void initProgress();
+  public abstract void initProgress();
 
-  protected abstract void updateProgress();
+  public abstract void updateProgress();
 
   protected abstract boolean isStoppingConditionReached();
 

@@ -251,4 +251,14 @@ public class MOEADIEpsilon extends AbstractMOEAD<DoubleSolution> {
       }
     }
   }
+
+  @Override
+  public void initProgress() {
+    
+  }
+
+  @Override
+  public void updateProgress() {
+    
+  }
 }

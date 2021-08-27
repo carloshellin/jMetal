@@ -63,11 +63,11 @@ public class NSGAII<S extends Solution<?>> extends AbstractGeneticAlgorithm<S, L
     this.offspringPopulationSize = offspringPopulationSize ;
   }
 
-  @Override protected void initProgress() {
+  @Override public void initProgress() {
     evaluations = getMaxPopulationSize();
   }
 
-  @Override protected void updateProgress() {
+  @Override public void updateProgress() {
     evaluations += offspringPopulationSize ;
   }
 

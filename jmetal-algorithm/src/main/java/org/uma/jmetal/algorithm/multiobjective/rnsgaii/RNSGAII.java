@@ -58,11 +58,11 @@ public class RNSGAII<S extends Solution<?>> extends NSGAII<S> implements
   public void updatePointOfInterest(List<Double> newReferencePoints){
     this.interestPoint = newReferencePoints;
   }
-  @Override protected void initProgress() {
+  @Override public void initProgress() {
     evaluations.reset(getMaxPopulationSize()) ;
   }
 
-  @Override protected void updateProgress() {
+  @Override public void updateProgress() {
     evaluations.increment(getMaxPopulationSize());
     solutionListMeasure.push(getPopulation());
   }

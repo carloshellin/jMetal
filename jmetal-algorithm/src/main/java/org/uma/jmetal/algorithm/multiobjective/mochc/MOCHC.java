@@ -83,11 +83,11 @@ public class MOCHC extends AbstractEvolutionaryAlgorithm<BinarySolution, List<Bi
     return maxPopulationSize ;
   }
 
-  @Override protected void initProgress() {
+  @Override public void initProgress() {
     evaluations = getMaxPopulationSize() ;
   }
 
-  @Override protected void updateProgress() {
+  @Override public void updateProgress() {
     evaluations += lastOffspringPopulationSize ;
   }
 

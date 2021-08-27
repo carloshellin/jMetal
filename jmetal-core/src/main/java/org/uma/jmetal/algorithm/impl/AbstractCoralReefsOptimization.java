@@ -230,9 +230,9 @@ public abstract class AbstractCoralReefsOptimization<S, R>
 		this.attemptsToSettle = attemptsToSettle;
 	}
 
-	protected abstract void initProgress();
+	public abstract void initProgress();
 
-	protected abstract void updateProgress();
+	public abstract void updateProgress();
 
 	protected abstract boolean isStoppingConditionReached();
 

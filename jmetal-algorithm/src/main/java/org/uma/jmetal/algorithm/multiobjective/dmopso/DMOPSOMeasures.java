@@ -53,12 +53,12 @@ public class DMOPSOMeasures extends DMOPSO implements Measurable {
   }
 
   @Override
-  protected void initProgress() {
+  public void initProgress() {
     this.iterations.reset();
   }
 
   @Override
-  protected void updateProgress() {
+  public void updateProgress() {
     this.iterations.increment();
     hypervolumeValue.push(new PISAHypervolume<DoubleSolution>(referenceFront).evaluate(getResult()));
     epsilonValue.push(new Epsilon<DoubleSolution>(referenceFront).evaluate(getResult()));
