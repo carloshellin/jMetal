@@ -50,4 +50,14 @@ public class RandomSearch<S extends Solution<?>> implements Algorithm<List<S>> {
   @Override public String getDescription() {
     return "Multi-objective random search algorithm" ;
   }
+
+  @Override
+  public void updateProgress() {
+    
+  }
+
+  @Override
+  public void finishProgress() {
+    
+  }
 } 

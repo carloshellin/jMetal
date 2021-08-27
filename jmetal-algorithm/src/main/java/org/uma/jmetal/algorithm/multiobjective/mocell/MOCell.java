@@ -74,7 +74,7 @@ public class MOCell<S extends Solution<?>> extends AbstractGeneticAlgorithm<S, L
   }
 
   @Override
-  protected void initProgress() {
+  public void initProgress() {
     evaluations = 0;
     currentIndividual = 0;
     for (S solution : population) {
@@ -83,7 +83,7 @@ public class MOCell<S extends Solution<?>> extends AbstractGeneticAlgorithm<S, L
   }
 
   @Override
-  protected void updateProgress() {
+  public void updateProgress() {
     evaluations++;
     currentIndividual = (currentIndividual + 1) % getMaxPopulationSize();
   }
@@ -181,5 +181,10 @@ public class MOCell<S extends Solution<?>> extends AbstractGeneticAlgorithm<S, L
   @Override
   public String getDescription() {
     return "Multi-Objective Cellular evolutionary algorithm";
+  }
+
+  @Override
+  public void finishProgress() {
+    
   }
 }

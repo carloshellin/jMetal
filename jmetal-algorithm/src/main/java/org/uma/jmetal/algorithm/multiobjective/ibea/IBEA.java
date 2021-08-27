@@ -292,4 +292,14 @@ public class IBEA<S extends Solution<?>> implements Algorithm<List<S>> {
   @Override public String getDescription() {
     return "Indicator based Evolutionary Algorithm" ;
   }
+  
+  @Override
+  public void updateProgress() {    
+
+  }
+
+  @Override
+  public void finishProgress() {
+    
+  }
 }

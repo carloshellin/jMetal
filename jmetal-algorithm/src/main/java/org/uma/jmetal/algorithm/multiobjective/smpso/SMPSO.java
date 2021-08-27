@@ -165,7 +165,7 @@ public class SMPSO extends AbstractParticleSwarmOptimization<DoubleSolution, Lis
   }
 
   @Override
-  protected void initProgress() {
+  public void initProgress() {
     evaluations = swarmSize;
     updateLeadersDensityEstimator();
 
@@ -180,7 +180,7 @@ public class SMPSO extends AbstractParticleSwarmOptimization<DoubleSolution, Lis
   }
 
   @Override
-  protected void updateProgress() {
+  public void updateProgress() {
     evaluations += swarmSize;
     updateLeadersDensityEstimator();
 
@@ -393,5 +393,10 @@ public class SMPSO extends AbstractParticleSwarmOptimization<DoubleSolution, Lis
 
   public int getEvaluations() {
     return evaluations;
+  }
+
+  @Override
+  public void finishProgress() {
+    
   }
 }

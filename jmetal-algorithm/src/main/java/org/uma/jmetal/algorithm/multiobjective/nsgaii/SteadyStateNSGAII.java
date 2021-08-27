@@ -26,7 +26,7 @@ public class SteadyStateNSGAII<S extends Solution<?>> extends NSGAII<S> {
         selectionOperator, dominanceComparator, evaluator);
   }
 
-  @Override protected void updateProgress() {
+  @Override public void updateProgress() {
     evaluations ++ ;
   }
 

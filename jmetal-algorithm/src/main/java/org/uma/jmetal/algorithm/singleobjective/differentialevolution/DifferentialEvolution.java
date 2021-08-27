@@ -57,11 +57,11 @@ public class DifferentialEvolution extends AbstractDifferentialEvolution<DoubleS
     this.evaluations = evaluations;
   }
 
-  @Override protected void initProgress() {
+  @Override public void initProgress() {
     evaluations = populationSize;
   }
 
-  @Override protected void updateProgress() {
+  @Override public void updateProgress() {
     evaluations += populationSize;
   }
 
@@ -133,5 +133,10 @@ public class DifferentialEvolution extends AbstractDifferentialEvolution<DoubleS
 
   @Override public String getDescription() {
     return "Differential Evolution Algorithm" ;
+  }
+
+  @Override
+  public void finishProgress() {
+    
   }
 }

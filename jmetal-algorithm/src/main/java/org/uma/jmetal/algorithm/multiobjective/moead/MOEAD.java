@@ -91,4 +91,14 @@ public class MOEAD extends AbstractMOEAD<DoubleSolution> {
   @Override public String getDescription() {
     return "Multi-Objective Evolutionary Algorithm based on Decomposition" ;
   }
+
+  @Override
+  public void updateProgress() {
+    
+  }
+
+  @Override
+  public void finishProgress() {
+     
+  }
 }

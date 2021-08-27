@@ -61,11 +61,11 @@ public class PAES<S extends Solution<?>> extends AbstractEvolutionStrategy<S, Li
     return mutationOperator;
   }
 
-  @Override protected void initProgress() {
+  @Override public void initProgress() {
     evaluations = 1;
   }
 
-  @Override protected void updateProgress() {
+  @Override public void updateProgress() {
     evaluations++;
   }
 
@@ -155,6 +155,11 @@ public class PAES<S extends Solution<?>> extends AbstractEvolutionStrategy<S, Li
 
   @Override public String getDescription() {
     return "Pareto-Archived Evolution Strategy" ;
+  }
+
+  @Override
+  public void finishProgress() {
+    
   }
 
 }

@@ -117,7 +117,7 @@ public class DynamicNSGAII<S extends Solution<?>> extends NSGAII<S>
   }
 
   @Override
-  protected void updateProgress() {
+  public void updateProgress() {
     super.updateProgress();
   }
 

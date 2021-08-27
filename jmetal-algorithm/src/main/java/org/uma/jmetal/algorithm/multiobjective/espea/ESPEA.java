@@ -94,14 +94,14 @@ public class ESPEA<S extends Solution<?>> extends AbstractGeneticAlgorithm<S, Li
   }
 
   @Override
-  protected void initProgress() {
+  public void initProgress() {
     evaluations = getMaxPopulationSize();
     // Initialize archive
     population.forEach(s -> archive.add(s));
   }
 
   @Override
-  protected void updateProgress() {
+  public void updateProgress() {
     // ESPEA is steady-state
     evaluations++;
   }
@@ -164,5 +164,10 @@ public class ESPEA<S extends Solution<?>> extends AbstractGeneticAlgorithm<S, Li
     mutationOperator.execute(offspring.get(0));
 
     return offspring;
+  }
+
+  @Override
+  public void finishProgress() {
+    
   }
 }

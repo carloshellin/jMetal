@@ -104,13 +104,13 @@ public class SMPSO extends AbstractParticleSwarmOptimization<DoubleSolution, Lis
   }
 
   @Override
-  protected void initProgress() {
+  public void initProgress() {
     iterations = 1;
     updateLeadersDensityEstimator();
   }
 
   @Override
-  protected void updateProgress() {
+  public void updateProgress() {
     iterations += 1;
     updateLeadersDensityEstimator();
   }
@@ -319,5 +319,10 @@ public class SMPSO extends AbstractParticleSwarmOptimization<DoubleSolution, Lis
   /* Setters */
   public void setIterations(int iterations) {
     this.iterations = iterations;
+  }
+
+  @Override
+  public void finishProgress() {
+    
   }
 }

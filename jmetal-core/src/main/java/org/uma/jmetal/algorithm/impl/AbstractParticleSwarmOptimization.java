@@ -19,8 +19,8 @@ public abstract class AbstractParticleSwarmOptimization<S, Result> implements Al
     this.swarm = swarm;
   }
 
-  protected abstract void initProgress() ;
-  protected abstract void updateProgress() ;
+  public abstract void initProgress() ;
+  public abstract void updateProgress() ;
 
   protected abstract boolean isStoppingConditionReached() ;
   protected abstract List<S> createInitialSwarm() ;
