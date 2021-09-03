@@ -1,6 +1,7 @@
 package org.uma.jmetal.algorithm.multiobjective.nsgaii;
 
 import org.uma.jmetal.algorithm.Algorithm;
+import org.uma.jmetal.algorithm.Watcher;
 import org.uma.jmetal.algorithm.impl.AbstractGeneticAlgorithm;
 import org.uma.jmetal.operator.crossover.CrossoverOperator;
 import org.uma.jmetal.operator.mutation.MutationOperator;
@@ -36,6 +37,7 @@ public class NSGAII45<S extends Solution<?>> implements Algorithm<List<S>> {
   protected SelectionOperator<List<S>, S> selectionOperator;
   protected CrossoverOperator<S> crossoverOperator;
   protected MutationOperator<S> mutationOperator;
+  protected Watcher watcher;
 
   /** Constructor */
   public NSGAII45(
@@ -175,5 +177,10 @@ public class NSGAII45<S extends Solution<?>> implements Algorithm<List<S>> {
   @Override
   public void updateProgress() {
     
+  }
+
+  @Override
+  public void setWatcher(Watcher watcher) {
+    this.watcher = watcher;
   }
 }

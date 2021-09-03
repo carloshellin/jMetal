@@ -1,8 +1,9 @@
 package org.uma.jmetal.algorithm.impl;
 
-import org.uma.jmetal.algorithm.Algorithm;
-
 import java.util.List;
+
+import org.uma.jmetal.algorithm.Algorithm;
+import org.uma.jmetal.algorithm.Watcher;
 
 /**
  * Abstract class representing a PSO algorithm
@@ -18,6 +19,8 @@ public abstract class AbstractParticleSwarmOptimization<S, Result> implements Al
   public void setSwarm(List<S> swarm) {
     this.swarm = swarm;
   }
+
+  protected Watcher watcher;
 
   public abstract void initProgress() ;
   public abstract void updateProgress() ;
@@ -55,5 +58,10 @@ public abstract class AbstractParticleSwarmOptimization<S, Result> implements Al
       updateParticlesMemory(swarm) ;
       updateProgress();
     }
+  }
+
+  @Override
+  public void setWatcher(Watcher watcher) {
+    this.watcher = watcher;
   }
 }

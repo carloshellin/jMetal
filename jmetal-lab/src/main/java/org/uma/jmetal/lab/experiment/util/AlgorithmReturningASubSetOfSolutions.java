@@ -1,15 +1,18 @@
 package org.uma.jmetal.lab.experiment.util;
 
+import java.util.List;
+
 import org.uma.jmetal.algorithm.Algorithm;
+import org.uma.jmetal.algorithm.Watcher;
 import org.uma.jmetal.solution.Solution;
 import org.uma.jmetal.util.SolutionListUtils;
-
-import java.util.List;
 
 @SuppressWarnings("serial")
 public class AlgorithmReturningASubSetOfSolutions<S extends Solution<?>> implements Algorithm<List<S>> {
   private Algorithm<List<S>> algorithm;
   private int numberOfSolutionsToReturn;
+
+  protected Watcher watcher;
 
   public AlgorithmReturningASubSetOfSolutions(
           Algorithm<List<S>> algorithm, int numberOfSolutionsToReturn) {
@@ -36,5 +39,10 @@ public class AlgorithmReturningASubSetOfSolutions<S extends Solution<?>> impleme
   @Override
   public String getDescription() {
     return algorithm.getDescription();
+  }
+
+  @Override
+  public void setWatcher(Watcher watcher) {
+    this.watcher = watcher;
   }
 }

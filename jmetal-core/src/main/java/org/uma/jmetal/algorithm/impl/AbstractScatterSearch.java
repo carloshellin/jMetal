@@ -1,9 +1,10 @@
 package org.uma.jmetal.algorithm.impl;
 
-import org.uma.jmetal.algorithm.Algorithm;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import org.uma.jmetal.algorithm.Algorithm;
+import org.uma.jmetal.algorithm.Watcher;
 
 /**
  * Abstract class representing a scatter search algorithm
@@ -33,6 +34,8 @@ public abstract class AbstractScatterSearch<S, R>  implements Algorithm<R>{
   public void setPopulationSize(int populationSize) {
     this.populationSize = populationSize ;
   }
+
+  protected Watcher watcher;
 
   public abstract boolean isStoppingConditionReached();
 
@@ -83,5 +86,10 @@ public abstract class AbstractScatterSearch<S, R>  implements Algorithm<R>{
       S improvedSolution = improvement(newSolution) ;
       population.add(improvedSolution) ;
     }
+  }
+
+  @Override
+  public void setWatcher(Watcher watcher) {
+    this.watcher = watcher;
   }
 }

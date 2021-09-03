@@ -1,14 +1,15 @@
 package org.uma.jmetal.algorithm.impl;
 
+import java.util.Comparator;
+
 import org.uma.jmetal.algorithm.Algorithm;
+import org.uma.jmetal.algorithm.Watcher;
 import org.uma.jmetal.operator.localsearch.LocalSearchOperator;
 import org.uma.jmetal.operator.localsearch.impl.BasicLocalSearch;
 import org.uma.jmetal.operator.mutation.MutationOperator;
 import org.uma.jmetal.problem.Problem;
 import org.uma.jmetal.solution.Solution;
 import org.uma.jmetal.util.comparator.DominanceComparator;
-
-import java.util.Comparator;
 
 /**
  * Abstract class representing a local search algorithm
@@ -20,6 +21,8 @@ import java.util.Comparator;
 public class DefaultLocalSearch<S extends Solution<?>> implements Algorithm<S> {
   private Problem<S> problem;
   private int maxEvaluations;
+
+  protected Watcher watcher;
 
   public Problem<S> getProblem() {
     return problem;
@@ -75,5 +78,10 @@ public class DefaultLocalSearch<S extends Solution<?>> implements Algorithm<S> {
   @Override
   public String getDescription() {
     return "Default local search";
+  }
+
+  @Override
+  public void setWatcher(Watcher watcher) {
+    this.watcher = watcher;
   }
 }

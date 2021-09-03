@@ -1,6 +1,9 @@
 package org.uma.jmetal.algorithm.multiobjective.moead;
 
+
+
 import org.uma.jmetal.algorithm.Algorithm;
+import org.uma.jmetal.algorithm.Watcher;
 import org.uma.jmetal.algorithm.multiobjective.moead.util.MOEADUtils;
 import org.uma.jmetal.operator.crossover.CrossoverOperator;
 import org.uma.jmetal.operator.mutation.MutationOperator;
@@ -67,6 +70,8 @@ public abstract class AbstractMOEAD<S extends Solution<?>> implements Algorithm<
 
   protected CrossoverOperator<S> crossoverOperator ;
   protected MutationOperator<S> mutationOperator ;
+
+  protected Watcher watcher;
 
   public AbstractMOEAD(Problem<S> problem, int populationSize, int resultPopulationSize,
       int maxEvaluations, CrossoverOperator<S> crossoverOperator, MutationOperator<S> mutation,
@@ -335,5 +340,10 @@ public abstract class AbstractMOEAD<S extends Solution<?>> implements Algorithm<
     } else {
       return population;
     }
+  }
+
+  @Override
+  public void setWatcher(Watcher watcher) {
+    this.watcher = watcher;
   }
 }

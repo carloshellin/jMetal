@@ -1,6 +1,7 @@
 package org.uma.jmetal.algorithm.multiobjective.ibea;
 
 import org.uma.jmetal.algorithm.Algorithm;
+import org.uma.jmetal.algorithm.Watcher;
 import org.uma.jmetal.operator.crossover.CrossoverOperator;
 import org.uma.jmetal.operator.mutation.MutationOperator;
 import org.uma.jmetal.operator.selection.SelectionOperator;
@@ -36,6 +37,8 @@ public class IBEA<S extends Solution<?>> implements Algorithm<List<S>> {
   protected SelectionOperator<List<S>, S> selectionOperator;
 
   protected Fitness<S> solutionFitness = new Fitness<S>();
+
+  protected Watcher watcher;
 
   /**
    * Constructor
@@ -291,5 +294,10 @@ public class IBEA<S extends Solution<?>> implements Algorithm<List<S>> {
 
   @Override public String getDescription() {
     return "Indicator based Evolutionary Algorithm" ;
+  }
+
+  @Override
+  public void setWatcher(Watcher watcher) {
+    this.watcher = watcher;
   }
 }

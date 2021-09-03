@@ -1,6 +1,7 @@
 package org.uma.jmetal.algorithm.multiobjective.dmopso;
 
 import org.uma.jmetal.algorithm.Algorithm;
+import org.uma.jmetal.algorithm.Watcher;
 import org.uma.jmetal.problem.doubleproblem.DoubleProblem;
 import org.uma.jmetal.solution.doublesolution.DoubleSolution;
 import org.uma.jmetal.util.bounds.Bounds;
@@ -66,6 +67,8 @@ public class DMOPSO implements Algorithm<List<DoubleSolution>> {
 
   private JMetalRandom randomGenerator;
   private SolutionListEvaluator<DoubleSolution> evaluator;
+
+  protected Watcher watcher;
 
   public DMOPSO(DoubleProblem problem, int swarmSize,
                 int maxIterations, double r1Min, double r1Max,
@@ -517,5 +520,10 @@ public class DMOPSO implements Algorithm<List<DoubleSolution>> {
 
   @Override public String getDescription() {
     return "MOPSO with decomposition" ;
+  }
+
+  @Override
+  public void setWatcher(Watcher watcher) {
+    this.watcher = watcher;
   }
 }

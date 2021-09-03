@@ -1,11 +1,12 @@
 package org.uma.jmetal.util.artificialdecisionmaker;
 
-import org.uma.jmetal.algorithm.Algorithm;
-import org.uma.jmetal.algorithm.InteractiveAlgorithm;
-import org.uma.jmetal.problem.Problem;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import org.uma.jmetal.algorithm.Algorithm;
+import org.uma.jmetal.algorithm.InteractiveAlgorithm;
+import org.uma.jmetal.algorithm.Watcher;
+import org.uma.jmetal.problem.Problem;
 
 @SuppressWarnings("serial")
 public abstract class ArtificialDecisionMaker<S, R> implements Algorithm<R> {
@@ -14,6 +15,7 @@ public abstract class ArtificialDecisionMaker<S, R> implements Algorithm<R> {
   protected Problem<S> problem ;
   protected List<Integer> indexOfRelevantObjectiveFunctions;
   protected List<S> paretoOptimalSolutions;
+  protected Watcher watcher;
 
   public ArtificialDecisionMaker(Problem<S> problem,InteractiveAlgorithm<S,R> algorithm){
     this.problem = problem;
@@ -62,5 +64,10 @@ public abstract class ArtificialDecisionMaker<S, R> implements Algorithm<R> {
   @Override
   public String getDescription() {
     return "ArtificialDecisionMaker";
+  }
+
+  @Override
+  public void setWatcher(Watcher watcher) {
+    this.watcher = watcher;
   }
 }
