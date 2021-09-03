@@ -240,9 +240,4 @@ public class ComponentBasedEvolutionaryAlgorithm<S extends Solution<?>>
   public long getCurrentComputingTime() {
     return System.currentTimeMillis() - initTime;
   }
-
-  @Override
-  public void finishProgress() {
-    
-  }
 }

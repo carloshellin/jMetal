@@ -247,11 +247,4 @@ public class OMOPSO extends AbstractParticleSwarmOptimization<DoubleSolution, Li
   @Override public String getDescription() {
     return "Optimized MOPSO" ;
   }
-
-
-  @Override
-  public void finishProgress() {
-    
-  }
-
 }

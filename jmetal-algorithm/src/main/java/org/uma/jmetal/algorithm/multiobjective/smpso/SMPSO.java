@@ -325,9 +325,4 @@ public class SMPSO extends AbstractParticleSwarmOptimization<DoubleSolution, Lis
   public void setIterations(int iterations) {
     this.iterations = iterations;
   }
-
-  @Override
-  public void finishProgress() {
-    
-  }
 }

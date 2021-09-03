@@ -518,9 +518,4 @@ public class DMOPSO implements Algorithm<List<DoubleSolution>> {
   @Override public String getDescription() {
     return "MOPSO with decomposition" ;
   }
-
-  @Override
-  public void finishProgress() {
-    
-  }
 }

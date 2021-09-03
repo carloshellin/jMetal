@@ -183,9 +183,4 @@ public class MOCell<S extends Solution<?>> extends AbstractGeneticAlgorithm<S, L
   public String getDescription() {
     return "Multi-Objective Cellular evolutionary algorithm";
   }
-
-  @Override
-  public void finishProgress() {
-    
-  }
 }

@@ -197,9 +197,4 @@ public class EvolutionaryAlgorithm<S extends Solution<?>>
   public Observable<Map<String, Object>> getObservable() {
     return observable;
   }
-
-  @Override
-  public void finishProgress() {
-    
-  }
 }

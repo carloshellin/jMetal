@@ -181,9 +181,4 @@ public class GDE3 extends AbstractDifferentialEvolution<List<DoubleSolution>> {
   public String getDescription() {
     return "Generalized Differential Evolution version 3";
   }
-
-  @Override
-  public void finishProgress() {
-    
-  }
 }

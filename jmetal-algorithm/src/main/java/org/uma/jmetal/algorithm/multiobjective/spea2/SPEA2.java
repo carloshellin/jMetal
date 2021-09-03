@@ -112,9 +112,4 @@ public class SPEA2<S extends Solution<?>> extends AbstractGeneticAlgorithm<S, Li
   @Override public String getDescription() {
     return "Strength Pareto. Evolutionary Algorithm" ;
   }
-
-  @Override
-  public void finishProgress() {
-    
-  }
 }

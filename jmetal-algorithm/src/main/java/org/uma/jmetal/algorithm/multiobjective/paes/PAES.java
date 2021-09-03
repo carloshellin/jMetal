@@ -148,6 +148,8 @@ public class PAES<S extends Solution<?>> extends AbstractEvolutionStrategy<S, Li
     return "PAES";
   }
 
+  @Override public String getDescription() {
+    return "Pareto-Archived Evolution Strategy" ;
   @Override
   public String getDescription() {
     return "Pareto-Archived Evolution Strategy";

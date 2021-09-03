@@ -1,6 +1,7 @@
 package org.uma.jmetal.algorithm.impl;
 
 import org.uma.jmetal.algorithm.Algorithm;
+import org.uma.jmetal.algorithm.Watcher;
 import org.uma.jmetal.problem.Problem;
 
 import java.util.List;
@@ -16,6 +17,7 @@ import java.util.List;
 public abstract class AbstractEvolutionaryAlgorithm<S, R>  implements Algorithm<R>{
   protected List<S> population;
   protected Problem<S> problem ;
+  protected Watcher watcher;
 
   public List<S> getPopulation() {
     return population;
@@ -29,6 +31,10 @@ public abstract class AbstractEvolutionaryAlgorithm<S, R>  implements Algorithm<
   }
   public Problem<S> getProblem() {
     return problem ;
+  }
+
+  public void setWatcher(Watcher watcher) {
+    this.watcher = watcher;
   }
 
   public abstract void initProgress();
@@ -62,6 +68,7 @@ public abstract class AbstractEvolutionaryAlgorithm<S, R>  implements Algorithm<
       offspringPopulation = evaluatePopulation(offspringPopulation);
       population = replacement(population, offspringPopulation);
       updateProgress();
+      watcher.updateProgress();
     }
   }
 }

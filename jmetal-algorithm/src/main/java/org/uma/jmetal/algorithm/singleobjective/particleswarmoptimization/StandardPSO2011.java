@@ -327,9 +327,4 @@ public class StandardPSO2011 extends AbstractParticleSwarmOptimization<DoubleSol
   @Override public String getDescription() {
     return "Standard PSO 2011" ;
   }
-
-  @Override
-  public void finishProgress() {
-    
-  }
 }
