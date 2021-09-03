@@ -1,11 +1,12 @@
 package org.uma.jmetal.algorithm.multiobjective.randomsearch;
 
+import java.util.List;
+
 import org.uma.jmetal.algorithm.Algorithm;
+import org.uma.jmetal.algorithm.Watcher;
 import org.uma.jmetal.problem.Problem;
 import org.uma.jmetal.solution.Solution;
 import org.uma.jmetal.util.archive.impl.NonDominatedSolutionListArchive;
-
-import java.util.List;
 
 /**
  * This class implements a simple random search algorithm.
@@ -17,6 +18,7 @@ public class RandomSearch<S extends Solution<?>> implements Algorithm<List<S>> {
   private Problem<S> problem ;
   private int maxEvaluations ;
   NonDominatedSolutionListArchive<S> nonDominatedArchive ;
+  protected Watcher watcher;
 
   /** Constructor */
   public RandomSearch(Problem<S> problem, int maxEvaluations) {
@@ -49,5 +51,10 @@ public class RandomSearch<S extends Solution<?>> implements Algorithm<List<S>> {
 
   @Override public String getDescription() {
     return "Multi-objective random search algorithm" ;
+  }
+
+  @Override
+  public void setWatcher(Watcher watcher) {
+    this.watcher = watcher;
   }
 } 

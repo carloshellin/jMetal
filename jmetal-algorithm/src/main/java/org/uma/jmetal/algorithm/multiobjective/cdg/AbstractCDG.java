@@ -13,15 +13,22 @@
 
 package org.uma.jmetal.algorithm.multiobjective.cdg;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+
 import org.uma.jmetal.algorithm.Algorithm;
+import org.uma.jmetal.algorithm.Watcher;
 import org.uma.jmetal.operator.crossover.CrossoverOperator;
 import org.uma.jmetal.problem.Problem;
 import org.uma.jmetal.solution.Solution;
 import org.uma.jmetal.util.pseudorandom.JMetalRandom;
 import org.uma.jmetal.util.solutionattribute.Ranking;
 import org.uma.jmetal.util.solutionattribute.impl.DominanceRanking;
-
-import java.util.*;
 
 /**
  * Abstract class for implementing versions of the CDG algorithm.
@@ -92,6 +99,8 @@ public abstract class AbstractCDG<S extends Solution<?>> implements Algorithm<Li
 	protected JMetalRandom randomGenerator;
 
 	protected CrossoverOperator<S> crossoverOperator;
+
+	protected Watcher watcher;
 
 	public AbstractCDG(Problem<S> problem, int populationSize, int resultPopulationSize, int maxEvaluations,
 			CrossoverOperator<S> crossoverOperator,double neighborhoodSelectionProbability, 
@@ -996,5 +1005,8 @@ public abstract class AbstractCDG<S extends Solution<?>> implements Algorithm<Li
 		return population;
 	}
 	
-	
+	@Override
+	public void setWatcher(Watcher watcher) {
+		this.watcher = watcher;
+	  }
 }

@@ -1,6 +1,11 @@
 package org.uma.jmetal.algorithm.multiobjective.cellde;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
 import org.uma.jmetal.algorithm.Algorithm;
+import org.uma.jmetal.algorithm.Watcher;
 import org.uma.jmetal.operator.crossover.impl.DifferentialEvolutionCrossover;
 import org.uma.jmetal.operator.selection.SelectionOperator;
 import org.uma.jmetal.problem.Problem;
@@ -16,10 +21,6 @@ import org.uma.jmetal.util.solutionattribute.impl.CrowdingDistance;
 import org.uma.jmetal.util.solutionattribute.impl.DominanceRanking;
 import org.uma.jmetal.util.solutionattribute.impl.LocationAttribute;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-
 /**
  * @author Antonio J. Nebro <antonio@lcc.uma.es>
  *
@@ -32,6 +33,8 @@ public class CellDE45 implements Algorithm<List<DoubleSolution>> {
 
   protected int evaluations;
   protected int maxEvaluations;
+
+  protected Watcher watcher;
 
   private Neighborhood<DoubleSolution> neighborhood;
   private int currentIndividual;
@@ -186,5 +189,10 @@ public class CellDE45 implements Algorithm<List<DoubleSolution>> {
     ranking.computeRanking(solutionList);
     
     return ranking;
+  }
+
+  @Override
+  public void setWatcher(Watcher watcher) {
+    this.watcher = watcher;
   }
 }

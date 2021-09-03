@@ -1,6 +1,11 @@
 package org.uma.jmetal.auto.algorithm;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.uma.jmetal.algorithm.Algorithm;
+import org.uma.jmetal.algorithm.Watcher;
 import org.uma.jmetal.component.evaluation.Evaluation;
 import org.uma.jmetal.component.initialsolutioncreation.InitialSolutionsCreation;
 import org.uma.jmetal.component.replacement.Replacement;
@@ -12,10 +17,6 @@ import org.uma.jmetal.util.archive.Archive;
 import org.uma.jmetal.util.observable.Observable;
 import org.uma.jmetal.util.observable.ObservableEntity;
 import org.uma.jmetal.util.observable.impl.DefaultObservable;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @SuppressWarnings("serial")
 public class EvolutionaryAlgorithm<S extends Solution<?>>
@@ -38,6 +39,8 @@ public class EvolutionaryAlgorithm<S extends Solution<?>>
   private Observable<Map<String, Object>> observable;
 
   private final String name;
+
+  protected Watcher watcher;
 
   /**
    * Constructor
@@ -196,5 +199,10 @@ public class EvolutionaryAlgorithm<S extends Solution<?>>
   @Override
   public Observable<Map<String, Object>> getObservable() {
     return observable;
+  }
+
+  @Override
+  public void setWatcher(Watcher watcher) {
+    this.watcher = watcher;
   }
 }

@@ -1,6 +1,15 @@
 package org.uma.jmetal.algorithm.multiobjective.moead;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
 import org.uma.jmetal.algorithm.Algorithm;
+import org.uma.jmetal.algorithm.Watcher;
 import org.uma.jmetal.algorithm.multiobjective.moead.util.MOEADUtils;
 import org.uma.jmetal.operator.crossover.CrossoverOperator;
 import org.uma.jmetal.operator.mutation.MutationOperator;
@@ -10,14 +19,6 @@ import org.uma.jmetal.util.JMetalException;
 import org.uma.jmetal.util.point.impl.IdealPoint;
 import org.uma.jmetal.util.point.impl.NadirPoint;
 import org.uma.jmetal.util.pseudorandom.JMetalRandom;
-
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
 
 /**
  * Abstract class for implementing versions of the MOEA/D algorithm.
@@ -65,6 +66,8 @@ public abstract class AbstractMOEAD<S extends Solution<?>> implements Algorithm<
 
   protected CrossoverOperator<S> crossoverOperator ;
   protected MutationOperator<S> mutationOperator ;
+
+  protected Watcher watcher;
 
   public AbstractMOEAD(Problem<S> problem, int populationSize, int resultPopulationSize,
       int maxEvaluations, CrossoverOperator<S> crossoverOperator, MutationOperator<S> mutation,
@@ -333,5 +336,10 @@ public abstract class AbstractMOEAD<S extends Solution<?>> implements Algorithm<
     } else {
       return population;
     }
+  }
+
+  @Override
+  public void setWatcher(Watcher watcher) {
+    this.watcher = watcher;
   }
 }

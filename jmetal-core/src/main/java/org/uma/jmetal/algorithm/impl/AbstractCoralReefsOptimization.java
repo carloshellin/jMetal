@@ -1,14 +1,15 @@
 package org.uma.jmetal.algorithm.impl;
 
-import org.uma.jmetal.algorithm.Algorithm;
-import org.uma.jmetal.operator.crossover.CrossoverOperator;
-import org.uma.jmetal.operator.mutation.MutationOperator;
-import org.uma.jmetal.operator.selection.SelectionOperator;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
+import org.uma.jmetal.algorithm.Algorithm;
+import org.uma.jmetal.algorithm.Watcher;
+import org.uma.jmetal.operator.crossover.CrossoverOperator;
+import org.uma.jmetal.operator.mutation.MutationOperator;
+import org.uma.jmetal.operator.selection.SelectionOperator;
 
 /**
  * Abstract class representing a Coral Reefs Optimization Algorithm
@@ -32,6 +33,8 @@ public abstract class AbstractCoralReefsOptimization<S, R>
 	protected CrossoverOperator<S> crossoverOperator;
 	protected MutationOperator<S> mutationOperator;
 	protected Comparator<S> comparator;
+
+	protected Watcher watcher;
 
 	private int N, M; // Grid sizes
 	private double rho; // Percentage of occupied reef
@@ -306,4 +309,8 @@ public abstract class AbstractCoralReefsOptimization<S, R>
 	@Override
 	public abstract R getResult();
 
+	@Override
+	public void setWatcher(Watcher watcher) {
+	  this.watcher = watcher;
+	}
 }

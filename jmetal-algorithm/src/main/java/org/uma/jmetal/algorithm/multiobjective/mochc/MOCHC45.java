@@ -1,6 +1,7 @@
 package org.uma.jmetal.algorithm.multiobjective.mochc;
 
 import org.uma.jmetal.algorithm.Algorithm;
+import org.uma.jmetal.algorithm.Watcher;
 import org.uma.jmetal.algorithm.impl.AbstractGeneticAlgorithm;
 import org.uma.jmetal.operator.crossover.CrossoverOperator;
 import org.uma.jmetal.operator.mutation.MutationOperator;
@@ -47,6 +48,8 @@ public class MOCHC45 implements Algorithm<List<BinarySolution>> {
   private int minimumDistance;
   private int size;
   private Comparator<BinarySolution> comparator;
+
+  protected Watcher watcher;
 
   /**
    * Constructor
@@ -197,5 +200,10 @@ public class MOCHC45 implements Algorithm<List<BinarySolution>> {
     }
 
     return distance;
+  }
+
+  @Override
+  public void setWatcher(Watcher watcher) {
+    this.watcher = watcher;
   }
 }
