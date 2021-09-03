@@ -17,7 +17,7 @@ import java.util.List;
 public abstract class AbstractEvolutionaryAlgorithm<S, R>  implements Algorithm<R>{
   protected List<S> population;
   protected Problem<S> problem ;
-  protected Watcher watcher;
+  protected Watcher<R> watcher;
 
   public List<S> getPopulation() {
     return population;
@@ -34,7 +34,7 @@ public abstract class AbstractEvolutionaryAlgorithm<S, R>  implements Algorithm<
   }
 
   @Override
-  public void setWatcher(Watcher watcher) {
+  public void setWatcher(Watcher<R> watcher) {
     this.watcher = watcher;
   }
 
@@ -69,7 +69,7 @@ public abstract class AbstractEvolutionaryAlgorithm<S, R>  implements Algorithm<
       offspringPopulation = evaluatePopulation(offspringPopulation);
       population = replacement(population, offspringPopulation);
       updateProgress();
-      watcher.updateProgress();
+      watcher.updateProgress(getResult());
     }
   }
 }
