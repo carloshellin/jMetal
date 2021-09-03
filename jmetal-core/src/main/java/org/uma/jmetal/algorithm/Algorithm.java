@@ -13,6 +13,4 @@ import java.io.Serializable;
 public interface Algorithm<Result> extends Runnable, Serializable, DescribedEntity {
   void run() ;
   Result getResult() ;
-  void updateProgress() ;
-  void finishProgress() ;
 }

@@ -114,9 +114,4 @@ public class ElitistEvolutionStrategy<S extends Solution<?>> extends AbstractEvo
   @Override public String getDescription() {
     return "Elitist Evolution Strategy Algorithm, i.e, (mu + lambda) EA" ;
   }
-
-  @Override
-  public void finishProgress() {
-    
-  }
 }

@@ -224,9 +224,4 @@ public class MOCHC extends AbstractEvolutionaryAlgorithm<BinarySolution, List<Bi
   public String getDescription() {
     return "Multiobjective CHC algorithm";
   }
-
-  @Override
-  public void finishProgress() {
-    
-  }
 }

@@ -165,9 +165,4 @@ public class ESPEA<S extends Solution<?>> extends AbstractGeneticAlgorithm<S, Li
 
     return offspring;
   }
-
-  @Override
-  public void finishProgress() {
-    
-  }
 }

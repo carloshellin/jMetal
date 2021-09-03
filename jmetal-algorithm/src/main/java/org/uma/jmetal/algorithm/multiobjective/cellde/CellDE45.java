@@ -187,9 +187,4 @@ public class CellDE45 implements Algorithm<List<DoubleSolution>> {
     
     return ranking;
   }
-
-  @Override
-  public void finishProgress() {
-    
-  }
 }

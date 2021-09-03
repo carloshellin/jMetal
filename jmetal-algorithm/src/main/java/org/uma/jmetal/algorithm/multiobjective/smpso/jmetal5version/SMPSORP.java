@@ -401,9 +401,4 @@ public class SMPSORP
   public void setReferencePointSolutions(List<DoubleSolution> referencePointSolutions) {
     this.referencePointSolutions = referencePointSolutions;
   }
-
-  @Override
-  public void finishProgress() {
-    
-  }
 }

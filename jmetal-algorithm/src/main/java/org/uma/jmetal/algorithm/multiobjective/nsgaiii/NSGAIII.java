@@ -183,10 +183,4 @@ public class NSGAIII<S extends Solution<?>> extends AbstractGeneticAlgorithm<S, 
   @Override public String getDescription() {
     return "Nondominated Sorting Genetic Algorithm version III" ;
   }
-
-  @Override
-  public void finishProgress() {
-    
-  }
-
 }

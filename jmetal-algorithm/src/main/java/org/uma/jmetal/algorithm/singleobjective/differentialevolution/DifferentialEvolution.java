@@ -134,9 +134,4 @@ public class DifferentialEvolution extends AbstractDifferentialEvolution<DoubleS
   @Override public String getDescription() {
     return "Differential Evolution Algorithm" ;
   }
-
-  @Override
-  public void finishProgress() {
-    
-  }
 }

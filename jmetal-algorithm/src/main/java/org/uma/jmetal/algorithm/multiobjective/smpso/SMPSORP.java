@@ -442,9 +442,4 @@ public class SMPSORP
   public int getEvaluations() {
     return evaluations;
   }
-
-  @Override
-  public void finishProgress() {
-    
-  }
 }

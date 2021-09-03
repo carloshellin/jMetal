@@ -117,9 +117,4 @@ public class PESA2<S extends Solution<?>> extends AbstractGeneticAlgorithm<S, Li
   @Override public String getDescription() {
     return "Pareto Envelope-based Selection Algorithm " ;
   }
-
-  @Override
-  public void finishProgress() {
-    
-  }
 }

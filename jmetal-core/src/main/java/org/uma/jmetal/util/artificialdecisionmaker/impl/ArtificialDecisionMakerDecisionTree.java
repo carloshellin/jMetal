@@ -248,13 +248,4 @@ public class ArtificialDecisionMakerDecisionTree<S extends Solution<?>> extends 
     result = map.get(map.firstKey());
     return result;
   }
-
-
-  @Override
-  public void finishProgress() {
-    
-  }
-
-
-
 }

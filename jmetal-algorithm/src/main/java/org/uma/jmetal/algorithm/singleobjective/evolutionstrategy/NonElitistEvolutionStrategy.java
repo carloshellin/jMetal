@@ -114,9 +114,4 @@ public class NonElitistEvolutionStrategy<S extends Solution<?>> extends Abstract
   @Override public String getDescription() {
     return "Non Elitist Evolution Strategy Algorithm, i.e, (mu , lambda) EA" ;
   }
-
-  @Override
-  public void finishProgress() {
-    
-  }
 }

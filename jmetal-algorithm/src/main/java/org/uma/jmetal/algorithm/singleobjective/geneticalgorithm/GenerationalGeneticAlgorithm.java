@@ -84,9 +84,4 @@ public class GenerationalGeneticAlgorithm<S extends Solution<?>> extends Abstrac
   @Override public String getDescription() {
     return "Generational Genetic Algorithm" ;
   }
-
-  @Override
-  public void finishProgress() {
-    
-  }
 }

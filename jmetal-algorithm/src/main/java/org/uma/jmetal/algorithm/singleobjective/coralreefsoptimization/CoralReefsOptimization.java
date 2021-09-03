@@ -220,10 +220,4 @@ public class CoralReefsOptimization<S>
 	public String getDescription() {
 		return "Coral Reefs Optimizatoin";
 	}
-
-	@Override
-	public void finishProgress() {
-		
-	}
-
 }

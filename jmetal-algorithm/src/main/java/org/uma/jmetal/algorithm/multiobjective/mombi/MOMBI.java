@@ -119,9 +119,4 @@ public class MOMBI<S extends Solution<?>> extends AbstractMOMBI<S> {
   public String getDescription() {
     return "Many-Objective Metaheuristic Based on the R2 Indicator";
   }
-
-  @Override
-  public void finishProgress() {
-    
-  }
 }

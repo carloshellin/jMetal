@@ -198,15 +198,4 @@ public class MOCHC45 implements Algorithm<List<BinarySolution>> {
 
     return distance;
   }
-
-  @Override
-  public void updateProgress() {
-    
-  }
-
-  @Override
-  public void finishProgress() {
-    
-  }
-
 }

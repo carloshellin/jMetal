@@ -535,10 +535,4 @@ public class CovarianceMatrixAdaptationEvolutionStrategy
   @Override public String getDescription() {
     return "Covariance Matrix Adaptation Evolution Strategy" ;
   }
-
-  @Override
-  public void finishProgress() {
-    
-  }
-
 }

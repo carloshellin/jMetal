@@ -156,8 +156,4 @@ public class NSGAII<S extends Solution<?>> extends AbstractGeneticAlgorithm<S, L
   @Override public String getDescription() {
     return "Nondominated Sorting Genetic Algorithm version II" ;
   }
-  @Override
-  public void finishProgress() {
-    
-  }
 }

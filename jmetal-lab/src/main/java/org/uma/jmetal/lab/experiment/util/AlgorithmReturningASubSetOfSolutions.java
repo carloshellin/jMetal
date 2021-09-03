@@ -37,14 +37,4 @@ public class AlgorithmReturningASubSetOfSolutions<S extends Solution<?>> impleme
   public String getDescription() {
     return algorithm.getDescription();
   }
-
-  @Override
-  public void updateProgress() {
-    
-  }
-
-  @Override
-  public void finishProgress() {
-    
-  }
 }

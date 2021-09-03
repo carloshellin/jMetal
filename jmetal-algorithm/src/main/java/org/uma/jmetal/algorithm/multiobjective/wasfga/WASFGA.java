@@ -206,9 +206,4 @@ public class WASFGA<S extends Solution<?>> extends AbstractMOMBI<S> implements
 	@Override public String getDescription() {
 		return "Weighting Achievement Scalarizing Function Genetic Algorithm" ;
 	}
-
-	@Override
-	public void finishProgress() {
-		
-	}
 }

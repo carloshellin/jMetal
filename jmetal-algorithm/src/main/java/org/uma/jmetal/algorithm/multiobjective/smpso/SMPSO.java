@@ -394,9 +394,4 @@ public class SMPSO extends AbstractParticleSwarmOptimization<DoubleSolution, Lis
   public int getEvaluations() {
     return evaluations;
   }
-
-  @Override
-  public void finishProgress() {
-    
-  }
 }

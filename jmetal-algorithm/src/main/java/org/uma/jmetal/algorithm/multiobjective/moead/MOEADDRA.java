@@ -157,14 +157,4 @@ public class MOEADDRA extends AbstractMOEAD<DoubleSolution> {
   @Override public String getDescription() {
     return "Multi-Objective Evolutionary Algorithm based on Decomposition. Version with Dynamic Resource Allocation" ;
   }
-
-  @Override
-  public void updateProgress() {
-    
-  }
-
-  @Override
-  public void finishProgress() {
-    
-  }
 }
