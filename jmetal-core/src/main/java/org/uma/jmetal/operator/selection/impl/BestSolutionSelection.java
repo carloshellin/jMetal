@@ -6,6 +6,9 @@ import org.uma.jmetal.util.errorchecking.Check;
 import java.util.Comparator;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * This class implements a selection operator used for selecting the best solution
  * in a list according to a given comparator.
@@ -15,7 +18,8 @@ import java.util.List;
 public class BestSolutionSelection<S> implements SelectionOperator<List<S>, S> {
 private final Comparator<S> comparator ;
 
-  public BestSolutionSelection(Comparator<S> comparator) {
+  @JsonCreator
+  public BestSolutionSelection(@JsonProperty(value="comparator", required=true) Comparator<S> comparator) {
     Check.notNull(comparator);
     this.comparator = comparator ;
   }
