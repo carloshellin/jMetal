@@ -1,5 +1,9 @@
 package org.uma.jmetal.operator.crossover.impl;
 
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.apache.commons.lang3.ArrayUtils;
 import org.uma.jmetal.operator.crossover.CrossoverOperator;
 import org.uma.jmetal.solution.Solution;
@@ -17,14 +21,17 @@ public class NPointCrossover<T> implements CrossoverOperator<Solution<T>> {
   private final double probability;
   private final int crossovers;
 
-  public NPointCrossover(double probability, int crossovers) {
+  @JsonCreator
+  public NPointCrossover(@JsonProperty(value="probability", required=true) double probability,
+      @JsonProperty(value="crossovers", required=true) int crossovers) {
     if (probability < 0.0) throw new JMetalException("Probability can't be negative");
     if (crossovers < 1) throw new JMetalException("Number of crossovers is less than one");
     this.probability = probability;
     this.crossovers = crossovers;
   }
 
-  public NPointCrossover(int crossovers) {
+  @JsonCreator
+  public NPointCrossover(@JsonProperty(value="crossovers", required=true) int crossovers) {
     this.crossovers = crossovers;
     this.probability = 1.0;
   }

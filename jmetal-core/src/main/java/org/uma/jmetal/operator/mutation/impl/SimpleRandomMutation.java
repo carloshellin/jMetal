@@ -1,5 +1,8 @@
 package org.uma.jmetal.operator.mutation.impl;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.operator.mutation.MutationOperator;
 import org.uma.jmetal.solution.doublesolution.DoubleSolution;
 import org.uma.jmetal.util.bounds.Bounds;
@@ -18,7 +21,8 @@ public class SimpleRandomMutation implements MutationOperator<DoubleSolution> {
   private RandomGenerator<Double> randomGenerator;
 
   /** Constructor */
-  public SimpleRandomMutation(double probability) {
+  @JsonCreator
+  public SimpleRandomMutation(@JsonProperty(value="mutationProbability", required=true) double probability) {
     this(probability, () -> JMetalRandom.getInstance().nextDouble());
   }
 

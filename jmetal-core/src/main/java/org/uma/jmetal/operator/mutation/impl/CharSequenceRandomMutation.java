@@ -1,5 +1,8 @@
 package org.uma.jmetal.operator.mutation.impl;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.operator.mutation.MutationOperator;
 import org.uma.jmetal.solution.sequencesolution.impl.CharSequenceSolution;
 import org.uma.jmetal.util.errorchecking.Check;
@@ -17,7 +20,9 @@ public class CharSequenceRandomMutation implements MutationOperator<CharSequence
   private final char[] alphabet;
 
   /** Constructor */
-  public CharSequenceRandomMutation(double mutationProbability, char[] alphabet) {
+  @JsonCreator
+  public CharSequenceRandomMutation(@JsonProperty(value="mutationProbability", required=true) double mutationProbability,
+      @JsonProperty(value="alphabet", required=true) char[] alphabet) {
     Check.probabilityIsValid(mutationProbability);
     this.mutationProbability = mutationProbability;
     this.alphabet = alphabet;

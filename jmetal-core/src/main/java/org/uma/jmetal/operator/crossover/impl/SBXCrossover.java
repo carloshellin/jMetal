@@ -39,7 +39,8 @@ public class SBXCrossover implements CrossoverOperator<DoubleSolution> {
 
   /** Constructor */
   @JsonCreator
-  public SBXCrossover(@JsonProperty(value="crossoverProbability", required=true) double crossoverProbability, @JsonProperty(value="distributionIndex", required=true) double distributionIndex) {
+  public SBXCrossover(@JsonProperty(value="crossoverProbability", required=true) double crossoverProbability,
+      @JsonProperty(value="distributionIndex", required=true) double distributionIndex) {
     this (crossoverProbability, distributionIndex, new RepairDoubleSolutionWithBoundValue()) ;
   }
   /** Constructor */
@@ -55,8 +56,10 @@ public class SBXCrossover implements CrossoverOperator<DoubleSolution> {
   }
 
   /** Constructor */
-  public SBXCrossover(
-      double crossoverProbability, double distributionIndex, RepairDoubleSolution solutionRepair) {
+  @JsonCreator
+  public SBXCrossover(@JsonProperty(value="crossoverProbability", required=true) double crossoverProbability,
+      @JsonProperty(value="distributionIndex", required=true) double distributionIndex,
+      @JsonProperty(value="solutionRepair", required=true) RepairDoubleSolution solutionRepair) {
     this(
         crossoverProbability,
         distributionIndex,

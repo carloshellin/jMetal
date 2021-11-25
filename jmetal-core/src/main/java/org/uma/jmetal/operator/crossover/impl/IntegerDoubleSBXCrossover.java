@@ -1,14 +1,17 @@
 package org.uma.jmetal.operator.crossover.impl;
 
+import java.util.Arrays;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.operator.crossover.CrossoverOperator;
 import org.uma.jmetal.solution.doublesolution.DoubleSolution;
 import org.uma.jmetal.solution.integerdoublesolution.IntegerDoubleSolution;
 import org.uma.jmetal.solution.integerdoublesolution.impl.DefaultIntegerDoubleSolution;
 import org.uma.jmetal.solution.integersolution.IntegerSolution;
 import org.uma.jmetal.util.errorchecking.Check;
-
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * This class allows to apply a SBX crossover operator using two parent solutions of implementing
@@ -25,8 +28,10 @@ public class IntegerDoubleSBXCrossover implements CrossoverOperator<IntegerDoubl
   private SBXCrossover doubleSBXCrossover;
 
   /** Constructor */
+  @JsonCreator
   public IntegerDoubleSBXCrossover(
-      IntegerSBXCrossover integerSBXCrossover, SBXCrossover doubleSBXCrossover) {
+      @JsonProperty(value="IntegerSBXCrossover", required=true) IntegerSBXCrossover integerSBXCrossover,
+      @JsonProperty(value="SBXCrossover", required=true) SBXCrossover doubleSBXCrossover) {
     this.integerSBXCrossover = integerSBXCrossover;
     this.doubleSBXCrossover = doubleSBXCrossover;
   }

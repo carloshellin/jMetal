@@ -1,5 +1,12 @@
 package org.uma.jmetal.operator.crossover.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.IntStream;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.operator.crossover.CrossoverOperator;
 import org.uma.jmetal.solution.doublesolution.DoubleSolution;
 import org.uma.jmetal.solution.util.repairsolution.RepairDoubleSolution;
@@ -10,10 +17,6 @@ import org.uma.jmetal.util.errorchecking.JMetalException;
 import org.uma.jmetal.util.pseudorandom.BoundedRandomGenerator;
 import org.uma.jmetal.util.pseudorandom.JMetalRandom;
 import org.uma.jmetal.util.pseudorandom.RandomGenerator;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.IntStream;
 
 /**
  * Differential evolution crossover operator
@@ -92,7 +95,10 @@ public class DifferentialEvolutionCrossover implements CrossoverOperator<DoubleS
    * @param f
    * @param variant
    */
-  public DifferentialEvolutionCrossover(double cr, double f, DE_VARIANT variant) {
+  @JsonCreator
+  public DifferentialEvolutionCrossover(@JsonProperty(value="cr", required=true) double cr,
+      @JsonProperty(value="f", required=true) double f,
+      @JsonProperty(value="variant", required=true) DE_VARIANT variant) {
     this(
             cr,
             f,

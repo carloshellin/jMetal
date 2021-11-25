@@ -1,5 +1,8 @@
 package org.uma.jmetal.operator.mutation.impl;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.operator.mutation.MutationOperator;
 import org.uma.jmetal.solution.doublesolution.DoubleSolution;
 import org.uma.jmetal.solution.util.repairsolution.RepairDoubleSolution;
@@ -23,7 +26,9 @@ public class UniformMutation implements MutationOperator<DoubleSolution> {
   private RepairDoubleSolution solutionRepair;
 
   /** Constructor */
-  public UniformMutation(double mutationProbability, double perturbation) {
+  @JsonCreator
+  public UniformMutation(@JsonProperty(value="mutationProbability", required=true) double mutationProbability,
+  @JsonProperty(value="perturbation", required=true) double perturbation) {
     this(
         mutationProbability,
         perturbation,
@@ -44,10 +49,11 @@ public class UniformMutation implements MutationOperator<DoubleSolution> {
   }
 
   /** Constructor */
+  @JsonCreator
   public UniformMutation(
-      double mutationProbability,
-      double perturbation,
-      RepairDoubleSolution solutionRepair) {
+    @JsonProperty(value="mutationProbability", required=true) double mutationProbability,
+    @JsonProperty(value="perturbation", required=true) double perturbation,
+    @JsonProperty(value="solutionRepair", required=true) RepairDoubleSolution solutionRepair) {
     this(mutationProbability, perturbation, solutionRepair, () -> JMetalRandom.getInstance().nextDouble()) ;
   }
 

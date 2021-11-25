@@ -1,5 +1,8 @@
 package org.uma.jmetal.operator.mutation.impl;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.operator.mutation.MutationOperator;
 import org.uma.jmetal.solution.binarysolution.BinarySolution;
 import org.uma.jmetal.util.errorchecking.Check;
@@ -18,7 +21,8 @@ public class BitFlipMutation implements MutationOperator<BinarySolution> {
   private RandomGenerator<Double> randomGenerator;
 
   /** Constructor */
-  public BitFlipMutation(double mutationProbability) {
+  @JsonCreator
+  public BitFlipMutation(@JsonProperty(value="mutationProbability", required=true) double mutationProbability) {
     this(mutationProbability, () -> JMetalRandom.getInstance().nextDouble());
   }
 
