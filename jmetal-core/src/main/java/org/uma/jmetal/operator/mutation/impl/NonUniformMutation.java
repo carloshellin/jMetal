@@ -1,5 +1,8 @@
 package org.uma.jmetal.operator.mutation.impl;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.operator.mutation.MutationOperator;
 import org.uma.jmetal.solution.doublesolution.DoubleSolution;
 import org.uma.jmetal.util.JMetalException;
@@ -22,7 +25,10 @@ public class NonUniformMutation implements MutationOperator<DoubleSolution> {
   private RandomGenerator<Double> randomGenenerator ;
 
   /** Constructor */
-  public NonUniformMutation(double mutationProbability, double perturbation, int maxIterations) {
+  @JsonCreator
+  public NonUniformMutation(@JsonProperty(value="mutationProbability", required=true) double mutationProbability,
+     @JsonProperty(value="perturbation", required=true) double perturbation,
+     @JsonProperty(value="maxIterations", required=true) int maxIterations) {
 	  this(mutationProbability, perturbation, maxIterations, () -> JMetalRandom.getInstance().nextDouble());
   }
 

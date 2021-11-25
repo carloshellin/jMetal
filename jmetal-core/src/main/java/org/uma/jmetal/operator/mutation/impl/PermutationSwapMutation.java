@@ -1,5 +1,8 @@
 package org.uma.jmetal.operator.mutation.impl;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.operator.mutation.MutationOperator;
 import org.uma.jmetal.solution.permutationsolution.PermutationSolution;
 import org.uma.jmetal.util.checking.Check;
@@ -20,7 +23,8 @@ public class PermutationSwapMutation<T> implements MutationOperator<PermutationS
   private BoundedRandomGenerator<Integer> positionRandomGenerator;
 
   /** Constructor */
-  public PermutationSwapMutation(double mutationProbability) {
+  @JsonCreator
+  public PermutationSwapMutation(@JsonProperty(value="mutationProbability", required=true) double mutationProbability) {
     this(
         mutationProbability,
         () -> JMetalRandom.getInstance().nextDouble(),

@@ -1,5 +1,11 @@
 package org.uma.jmetal.operator.crossover.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.operator.crossover.CrossoverOperator;
 import org.uma.jmetal.solution.binarysolution.BinarySolution;
 import org.uma.jmetal.util.JMetalException;
@@ -8,9 +14,6 @@ import org.uma.jmetal.util.checking.Check;
 import org.uma.jmetal.util.pseudorandom.BoundedRandomGenerator;
 import org.uma.jmetal.util.pseudorandom.JMetalRandom;
 import org.uma.jmetal.util.pseudorandom.RandomGenerator;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * This class implements a single point crossover operator.
@@ -24,7 +27,8 @@ public class SinglePointCrossover implements CrossoverOperator<BinarySolution> {
   private BoundedRandomGenerator<Integer> pointRandomGenerator;
 
   /** Constructor */
-  public SinglePointCrossover(double crossoverProbability) {
+  @JsonCreator
+  public SinglePointCrossover(@JsonProperty(value="crossoverProbability", required=true) double crossoverProbability) {
     this(
         crossoverProbability,
         () -> JMetalRandom.getInstance().nextDouble(),

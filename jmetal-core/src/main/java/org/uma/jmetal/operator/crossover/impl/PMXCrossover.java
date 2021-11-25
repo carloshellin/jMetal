@@ -1,14 +1,17 @@
 package org.uma.jmetal.operator.crossover.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.operator.crossover.CrossoverOperator;
 import org.uma.jmetal.solution.permutationsolution.PermutationSolution;
 import org.uma.jmetal.util.JMetalException;
 import org.uma.jmetal.util.pseudorandom.BoundedRandomGenerator;
 import org.uma.jmetal.util.pseudorandom.JMetalRandom;
 import org.uma.jmetal.util.pseudorandom.RandomGenerator;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * This class allows to apply a PMX crossover operator using two parent solutions.
@@ -26,7 +29,8 @@ public class PMXCrossover implements
   /**
    * Constructor
    */
-  public PMXCrossover(double crossoverProbability) {
+  @JsonCreator
+  public PMXCrossover(@JsonProperty(value="crossoverProbability", required=true) double crossoverProbability) {
 	  this(crossoverProbability, () -> JMetalRandom.getInstance().nextDouble(), (a, b) -> JMetalRandom.getInstance().nextInt(a, b));
   }
 
