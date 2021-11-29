@@ -1,9 +1,12 @@
 package org.uma.jmetal.operator.selection.impl;
 
+import java.util.Comparator;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.solution.Solution;
 import org.uma.jmetal.util.comparator.DominanceComparator;
-
-import java.util.Comparator;
 
 /**
  * Applies a binary tournament selection to return the best solution between two that have been
@@ -16,12 +19,14 @@ import java.util.Comparator;
 @SuppressWarnings("serial")
 public class BinaryTournamentSelection<S extends Solution<?>> extends TournamentSelection<S> {
     /** Constructor */
+  @JsonCreator    
   public BinaryTournamentSelection() {
     super(new DominanceComparator<S>(), 2) ;
   }
 
   /** Constructor */
-  public BinaryTournamentSelection(Comparator<S> comparator) {
+  @JsonCreator
+  public BinaryTournamentSelection(@JsonProperty(value="comparator", required=true)  Comparator<S> comparator) {
     super(comparator,2);
   }
 }

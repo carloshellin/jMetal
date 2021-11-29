@@ -1,5 +1,12 @@
 package org.uma.jmetal.operator.selection.impl;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.operator.selection.SelectionOperator;
 import org.uma.jmetal.solution.Solution;
 import org.uma.jmetal.util.JMetalException;
@@ -7,10 +14,6 @@ import org.uma.jmetal.util.comparator.CrowdingDistanceComparator;
 import org.uma.jmetal.util.solutionattribute.Ranking;
 import org.uma.jmetal.util.solutionattribute.impl.DominanceRanking;
 import org.uma.jmetal.util.solutionattribute.impl.PreferenceDistance;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 @SuppressWarnings("serial")
 public class RankingAndPreferenceSelection<S extends Solution<?>>
@@ -22,7 +25,11 @@ public class RankingAndPreferenceSelection<S extends Solution<?>>
   /**
    * Constructor
    */
-  public RankingAndPreferenceSelection(int solutionsToSelect, List<Double> interestPoint, double epsilon) {
+  @JsonCreator
+  public RankingAndPreferenceSelection(
+      @JsonProperty(value="solutionsToSelect", required=true) int solutionsToSelect, 
+      @JsonProperty(value="dominanceComparator", required=true) List<Double> interestPoint, 
+      @JsonProperty(value="referenceVectors", required=true) double epsilon) {
     this.solutionsToSelect = solutionsToSelect;
     this.interestPoint = interestPoint;
     this.epsilon = epsilon;

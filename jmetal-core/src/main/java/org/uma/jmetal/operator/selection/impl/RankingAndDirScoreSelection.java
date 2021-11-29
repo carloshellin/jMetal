@@ -1,5 +1,12 @@
 package org.uma.jmetal.operator.selection.impl;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.apache.commons.collections4.CollectionUtils;
 import org.uma.jmetal.solution.Solution;
 import org.uma.jmetal.util.JMetalException;
@@ -7,10 +14,6 @@ import org.uma.jmetal.util.comparator.DirScoreComparator;
 import org.uma.jmetal.util.solutionattribute.Ranking;
 import org.uma.jmetal.util.solutionattribute.impl.DirScore;
 import org.uma.jmetal.util.solutionattribute.impl.DominanceRanking;
-
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
 
 /**
  * created at 11:47 am, 2019/1/29 Used for DIR-enhanced NSGA-II (D-NSGA-II) to select the joint
@@ -28,8 +31,11 @@ public class RankingAndDirScoreSelection<S extends Solution<?>>
   private Comparator<S> dominanceComparator;
   private double[][] referenceVectors;
 
+  @JsonCreator
   public RankingAndDirScoreSelection(
-      int solutionsToSelect, Comparator<S> dominanceComparator, double[][] referenceVectors) {
+      @JsonProperty(value="solutionsToSelect", required=true) int solutionsToSelect,
+      @JsonProperty(value="dominanceComparator", required=true) Comparator<S> dominanceComparator, 
+      @JsonProperty(value="referenceVectors", required=true) double[][] referenceVectors) {
     super(solutionsToSelect, dominanceComparator);
     this.solutionsToSelect = solutionsToSelect;
     this.dominanceComparator = dominanceComparator;
