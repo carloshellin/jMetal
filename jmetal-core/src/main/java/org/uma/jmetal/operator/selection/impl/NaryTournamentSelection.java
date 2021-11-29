@@ -1,13 +1,16 @@
 package org.uma.jmetal.operator.selection.impl;
 
+import java.util.Comparator;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.operator.selection.SelectionOperator;
 import org.uma.jmetal.solution.Solution;
 import org.uma.jmetal.util.SolutionListUtils;
 import org.uma.jmetal.util.comparator.DominanceComparator;
 import org.uma.jmetal.util.errorchecking.Check;
-
-import java.util.Comparator;
-import java.util.List;
 
 /**
  * Applies a N-ary tournament selection to return the best solution between N that have been chosen
@@ -22,12 +25,15 @@ public class NaryTournamentSelection<S extends Solution<?>>
   private int tournamentSize;
 
   /** Constructor */
+  @JsonCreator
   public NaryTournamentSelection() {
     this(2, new DominanceComparator<S>());
   }
 
   /** Constructor */
-  public NaryTournamentSelection(int tournamentSize, Comparator<S> comparator) {
+  @JsonCreator
+  public NaryTournamentSelection(@JsonProperty(value="tournamentSize", required=true) int tournamentSize,
+      @JsonProperty(value="comparator", required=true) Comparator<S> comparator) {
     this.tournamentSize = tournamentSize;
     this.comparator = comparator;
   }

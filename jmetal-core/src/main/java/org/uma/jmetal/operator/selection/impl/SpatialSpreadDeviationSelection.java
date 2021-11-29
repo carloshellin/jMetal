@@ -36,12 +36,15 @@ public class SpatialSpreadDeviationSelection<S extends Solution<?>>
   private final int numberOfTournaments;
 
   /** Constructor */
-  public SpatialSpreadDeviationSelection(int numberOfTournaments) {
-    this(new RankingAndSSDComparator<>(), numberOfTournaments) ;
+  @JsonCreator
+  public SpatialSpreadDeviationSelection(@JsonProperty(value="numberOfTournaments", required=true) int numberOfTournaments) {
+    this(new RankingAndSSDComparator<S>(), numberOfTournaments) ;
   }
 
   /** Constructor */
-  public SpatialSpreadDeviationSelection(Comparator<S> comparator, int numberOfTournaments) {
+  @JsonCreator
+  public SpatialSpreadDeviationSelection(@JsonProperty(value="comparator", required=true) Comparator<S> comparator,
+      @JsonProperty(value="numberOfTournaments", required=true) int numberOfTournaments) {
     this.numberOfTournaments = numberOfTournaments;
     this.comparator = comparator ;
   }

@@ -1,10 +1,13 @@
 package org.uma.jmetal.operator.selection.impl;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.operator.selection.SelectionOperator;
 import org.uma.jmetal.util.SolutionListUtils;
 import org.uma.jmetal.util.errorchecking.Check;
-
-import java.util.List;
 
 /**
  * This class implements a random selection operator used for selecting randomly N solutions from a
@@ -18,12 +21,14 @@ public class NaryRandomSelection<S> implements SelectionOperator<List<S>, List<S
   private int numberOfSolutionsToBeReturned;
 
   /** Constructor */
+  @JsonCreator
   public NaryRandomSelection() {
     this(1);
   }
 
   /** Constructor */
-  public NaryRandomSelection(int numberOfSolutionsToBeReturned) {
+  @JsonCreator
+  public NaryRandomSelection(@JsonProperty(value="numberOfSolutionsToBeReturned", required=true) int numberOfSolutionsToBeReturned) {
     this.numberOfSolutionsToBeReturned = numberOfSolutionsToBeReturned;
   }
 

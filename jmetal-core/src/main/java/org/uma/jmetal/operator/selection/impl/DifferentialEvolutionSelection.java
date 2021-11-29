@@ -1,14 +1,17 @@
 package org.uma.jmetal.operator.selection.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.operator.selection.SelectionOperator;
 import org.uma.jmetal.solution.doublesolution.DoubleSolution;
 import org.uma.jmetal.util.errorchecking.Check;
 import org.uma.jmetal.util.pseudorandom.BoundedRandomGenerator;
 import org.uma.jmetal.util.pseudorandom.JMetalRandom;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Class implementing the selection operator used in DE: a number of different solutions are
@@ -30,13 +33,16 @@ public class DifferentialEvolutionSelection
   private boolean selectCurrentSolution;
 
   /** Constructor */
+  @JsonCreator
   public DifferentialEvolutionSelection() {
     this((a, b) -> JMetalRandom.getInstance().nextInt(a, b), 3, false);
   }
 
   /** Constructor */
+  @JsonCreator
   public DifferentialEvolutionSelection(
-      int numberOfSolutionsToSelect, boolean selectCurrentSolution) {
+      @JsonProperty(value="numberOfSolutionsToSelect", required=true) int numberOfSolutionsToSelect,
+      @JsonProperty(value="selectCurrentSolution", required=true) boolean selectCurrentSolution) {
     this(
         (a, b) -> JMetalRandom.getInstance().nextInt(a, b),
         numberOfSolutionsToSelect,

@@ -1,5 +1,9 @@
 package org.uma.jmetal.operator.selection.impl;
 
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.operator.selection.SelectionOperator;
 import org.uma.jmetal.solution.Solution;
 import org.uma.jmetal.util.comparator.DominanceComparator;
@@ -27,13 +31,16 @@ public class RankingAndCrowdingSelection<S extends Solution<?>>
 
 
   /** Constructor */
-  public RankingAndCrowdingSelection(int solutionsToSelect, Comparator<S> dominanceComparator) {
+  @JsonCreator
+  public RankingAndCrowdingSelection(@JsonProperty(value="solutionsToSelect", required=true) int solutionsToSelect,
+      @JsonProperty(value="dominanceComparator", required=true) Comparator<S> dominanceComparator) {
     this.dominanceComparator = dominanceComparator ;
     this.solutionsToSelect = solutionsToSelect ;
   }
 
   /** Constructor */
-  public RankingAndCrowdingSelection(int solutionsToSelect) {
+  @JsonCreator
+  public RankingAndCrowdingSelection(@JsonProperty(value="solutionsToSelect", required=true) int solutionsToSelect) {
     this(solutionsToSelect, new DominanceComparator<S>()) ;
   }
 
