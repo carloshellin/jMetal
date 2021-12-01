@@ -1,5 +1,8 @@
 package org.uma.jmetal.algorithm.multiobjective.moead;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.algorithm.AlgorithmBuilder;
 import org.uma.jmetal.operator.crossover.CrossoverOperator;
 import org.uma.jmetal.operator.crossover.impl.DifferentialEvolutionCrossover;
@@ -42,7 +45,9 @@ public class MOEADBuilder implements AlgorithmBuilder<AbstractMOEAD<DoubleSoluti
   protected Variant moeadVariant ;
 
   /** Constructor */
-  public MOEADBuilder(Problem<DoubleSolution> problem, Variant variant) {
+  @JsonCreator
+  public MOEADBuilder(@JsonProperty(value="problem", required=true) Problem<DoubleSolution> problem,
+      @JsonProperty(value="variant", required=true) Variant variant) {
     this.problem = problem ;
     populationSize = 300 ;
     resultPopulationSize = 300 ;

@@ -1,5 +1,8 @@
 package org.uma.jmetal.algorithm.singleobjective.evolutionstrategy;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.algorithm.Algorithm;
 import org.uma.jmetal.algorithm.AlgorithmBuilder;
 import org.uma.jmetal.operator.mutation.MutationOperator;
@@ -21,8 +24,10 @@ public class EvolutionStrategyBuilder<S extends Solution<?>> implements Algorith
   private MutationOperator<S> mutation;
   private EvolutionStrategyVariant variant ;
 
-  public EvolutionStrategyBuilder(Problem<S> problem, MutationOperator<S> mutationOperator,
-      EvolutionStrategyVariant variant) {
+  @JsonCreator
+  public EvolutionStrategyBuilder(@JsonProperty(value="problem", required=true) Problem<S> problem,
+      @JsonProperty(value="mutationOperator", required=true) MutationOperator<S> mutationOperator,
+      @JsonProperty(value="variant", required=true) EvolutionStrategyVariant variant) {
     this.problem = problem;
     this.mu = 1;
     this.lambda = 10;

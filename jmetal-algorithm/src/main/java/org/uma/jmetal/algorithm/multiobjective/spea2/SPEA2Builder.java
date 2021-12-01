@@ -1,5 +1,10 @@
 package org.uma.jmetal.algorithm.multiobjective.spea2;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.algorithm.AlgorithmBuilder;
 import org.uma.jmetal.operator.crossover.CrossoverOperator;
 import org.uma.jmetal.operator.mutation.MutationOperator;
@@ -10,8 +15,6 @@ import org.uma.jmetal.solution.Solution;
 import org.uma.jmetal.util.errorchecking.JMetalException;
 import org.uma.jmetal.util.evaluator.SolutionListEvaluator;
 import org.uma.jmetal.util.evaluator.impl.SequentialSolutionListEvaluator;
-
-import java.util.List;
 
 /**
  * @author Juan J. Durillo
@@ -32,8 +35,10 @@ public class SPEA2Builder<S extends Solution<?>> implements AlgorithmBuilder<SPE
   /**
    * SPEA2Builder constructor
    */
-  public SPEA2Builder(Problem<S> problem, CrossoverOperator<S> crossoverOperator,
-      MutationOperator<S> mutationOperator) {
+  @JsonCreator
+  public SPEA2Builder(@JsonProperty(value="problem", required=true) Problem<S> problem,
+      @JsonProperty(value="crossoverOperator", required=true) CrossoverOperator<S> crossoverOperator,
+      @JsonProperty(value="mutationOperator", required=true) MutationOperator<S> mutationOperator) {
     this.problem = problem;
     maxIterations = 250;
     populationSize = 100;

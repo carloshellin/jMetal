@@ -37,8 +37,12 @@ public class RNSGAIIBuilder<S extends Solution<?>> implements AlgorithmBuilder<R
   /**
    * RNSGAIIBuilder constructor
    */
-  public RNSGAIIBuilder(Problem<S> problem, CrossoverOperator<S> crossoverOperator,
-                        MutationOperator<S> mutationOperator, List<Double> interestPoint, double epsilon) {
+  @JsonCreator
+  public RNSGAIIBuilder(@JsonProperty(value="problem", required=true) Problem<S> problem,
+      @JsonProperty(value="crossoverOperator", required=true) CrossoverOperator<S> crossoverOperator,
+      @JsonProperty(value="mutationOperator", required=true) MutationOperator<S> mutationOperator,
+      @JsonProperty(value="interestPoint", required=true) List<Double> interestPoint,
+      @JsonProperty(value="epsilon", required=true) double epsilon) {
     this.problem = problem;
     maxEvaluations = 25000;
     populationSize = 100;

@@ -1,5 +1,11 @@
 package org.uma.jmetal.algorithm.singleobjective.coralreefsoptimization;
 
+import java.util.Comparator;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.algorithm.AlgorithmBuilder;
 import org.uma.jmetal.operator.crossover.CrossoverOperator;
 import org.uma.jmetal.operator.mutation.MutationOperator;
@@ -7,9 +13,6 @@ import org.uma.jmetal.operator.selection.SelectionOperator;
 import org.uma.jmetal.problem.Problem;
 import org.uma.jmetal.solution.Solution;
 import org.uma.jmetal.util.errorchecking.JMetalException;
-
-import java.util.Comparator;
-import java.util.List;
 
 /**
  * 
@@ -40,10 +43,11 @@ public class CoralReefsOptimizationBuilder<S extends Solution<?>> implements
 	/**
 	 * CoralReefsOptimizationBuilder constructor
 	 */
-	public CoralReefsOptimizationBuilder(Problem<S> problem,
-			SelectionOperator<List<S>, S> selectionOperator,
-			CrossoverOperator<S> crossoverOperator,
-			MutationOperator<S> mutationOperator) {
+	@JsonCreator
+	public CoralReefsOptimizationBuilder(@JsonProperty(value="problem", required=true) Problem<S> problem,
+			@JsonProperty(value="selectionOperator", required=true) SelectionOperator<List<S>, S> selectionOperator,
+			@JsonProperty(value="crossoverOperator", required=true) CrossoverOperator<S> crossoverOperator,
+			@JsonProperty(value="mutationOperator", required=true) MutationOperator<S> mutationOperator) {
 		this.problem = problem;
 		this.selectionOperator = selectionOperator;
 		this.crossoverOperator = crossoverOperator;

@@ -20,7 +20,8 @@ public class DifferentialEvolutionBuilder {
   private DifferentialEvolutionSelection selectionOperator;
   private SolutionListEvaluator<DoubleSolution> evaluator;
 
-  public DifferentialEvolutionBuilder(DoubleProblem problem) {
+  @JsonCreator
+  public DifferentialEvolutionBuilder(@JsonProperty(value="problem", required=true) DoubleProblem problem) {
     this.problem = problem;
     this.populationSize = 100;
     this.maxEvaluations = 25000;
