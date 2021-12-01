@@ -1,5 +1,10 @@
 package org.uma.jmetal.algorithm.multiobjective.ibea;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.algorithm.AlgorithmBuilder;
 import org.uma.jmetal.operator.crossover.CrossoverOperator;
 import org.uma.jmetal.operator.crossover.impl.SBXCrossover;
@@ -9,8 +14,6 @@ import org.uma.jmetal.operator.selection.SelectionOperator;
 import org.uma.jmetal.operator.selection.impl.BinaryTournamentSelection;
 import org.uma.jmetal.problem.Problem;
 import org.uma.jmetal.solution.doublesolution.DoubleSolution;
-
-import java.util.List;
 
 /**
  * This class implements the IBEA algorithm
@@ -29,7 +32,8 @@ public class IBEABuilder implements AlgorithmBuilder<IBEA<DoubleSolution>> {
    * Constructor
    * @param problem
    */
-  public IBEABuilder(Problem<DoubleSolution> problem) {
+  @JsonCreator
+  public IBEABuilder(@JsonProperty(value="problem", required=true) Problem<DoubleSolution> problem) {
     this.problem = problem;
     populationSize = 100;
     archiveSize = 100;

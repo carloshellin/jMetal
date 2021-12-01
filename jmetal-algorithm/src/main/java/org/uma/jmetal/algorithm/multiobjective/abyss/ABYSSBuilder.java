@@ -1,5 +1,12 @@
 package org.uma.jmetal.algorithm.multiobjective.abyss;
 
+arator.DominanceComparator;
+import java.util.Arrays;
+import java.util.Comparator;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.algorithm.AlgorithmBuilder;
 import org.uma.jmetal.operator.crossover.CrossoverOperator;
 import org.uma.jmetal.operator.crossover.impl.SBXCrossover;
@@ -14,9 +21,6 @@ import org.uma.jmetal.util.archive.impl.CrowdingDistanceArchive;
 import org.uma.jmetal.util.comparator.DominanceComparator;
 import org.uma.jmetal.util.comparator.MultiComparator;
 import org.uma.jmetal.util.comparator.impl.OverallConstraintViolationComparator;
-
-import java.util.Arrays;
-import java.util.Comparator;
 
 /** @author Cristobal Barba */
 public class ABYSSBuilder implements AlgorithmBuilder<ABYSS> {
@@ -33,7 +37,9 @@ public class ABYSSBuilder implements AlgorithmBuilder<ABYSS> {
   private int maxEvaluations;
   private CrowdingDistanceArchive<DoubleSolution> archive;
 
-  public ABYSSBuilder(DoubleProblem problem, Archive<DoubleSolution> archive) {
+  @JsonCreator
+  public ABYSSBuilder(@JsonProperty(value="problem", required=true) DoubleProblem problem,
+      @JsonProperty(value="archive", required=true) Archive<DoubleSolution> archive) {
     this.populationSize = 20;
     this.maxEvaluations = 25000;
     this.archiveSize = 100;

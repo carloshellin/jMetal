@@ -55,7 +55,8 @@ public class CDGBuilder implements AlgorithmBuilder<AbstractCDG<DoubleSolution>>
   protected int childGridNum_;
 
   /** Constructor */
-  public CDGBuilder(Problem<DoubleSolution> problem) {
+  @JsonCreator
+  public CDGBuilder(@JsonProperty(value="problem", required=true) Problem<DoubleSolution> problem) {
 
     this.problem = problem;
     populationSize = 300;

@@ -1,5 +1,8 @@
 package org.uma.jmetal.algorithm.multiobjective.omopso;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.algorithm.AlgorithmBuilder;
 import org.uma.jmetal.operator.mutation.MutationOperator;
 import org.uma.jmetal.operator.mutation.impl.NonUniformMutation;
@@ -20,7 +23,9 @@ public class OMOPSOBuilder implements AlgorithmBuilder<OMOPSO> {
   private UniformMutation uniformMutation ;
   private NonUniformMutation nonUniformMutation ;
 
-  public OMOPSOBuilder(DoubleProblem problem, SolutionListEvaluator<DoubleSolution> evaluator) {
+  @JsonCreator
+  public OMOPSOBuilder(@JsonProperty(value="problem", required=true) DoubleProblem problem,
+    @JsonProperty(value="evaluator", required=true) SolutionListEvaluator<DoubleSolution> evaluator) {
     this.evaluator = evaluator ;
     this.problem = problem ;
   }

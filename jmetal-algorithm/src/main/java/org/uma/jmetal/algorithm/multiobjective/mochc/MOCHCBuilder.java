@@ -31,7 +31,8 @@ public class MOCHCBuilder implements AlgorithmBuilder<MOCHC> {
   SelectionOperator<List<BinarySolution>, BinarySolution> parentSelection;
   SelectionOperator<List<BinarySolution>, List<BinarySolution>> newGenerationSelection;
 
-  public MOCHCBuilder(BinaryProblem problem) {
+  @JsonCreator
+  public MOCHCBuilder(@JsonProperty(value="problem", required=true) BinaryProblem problem) {
     this.problem = problem;
     evaluator = new SequentialSolutionListEvaluator<BinarySolution>() ;
     populationSize = 100 ;

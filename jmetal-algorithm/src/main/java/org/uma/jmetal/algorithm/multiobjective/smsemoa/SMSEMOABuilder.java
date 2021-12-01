@@ -35,8 +35,10 @@ public class SMSEMOABuilder<S extends Solution<?>> implements AlgorithmBuilder<S
   protected Hypervolume<S> hypervolumeImplementation;
   protected Comparator<S> dominanceComparator ;
 
-  public SMSEMOABuilder(Problem<S> problem, CrossoverOperator<S> crossoverOperator,
-      MutationOperator<S> mutationOperator) {
+  @JsonCreator
+  public SMSEMOABuilder(@JsonProperty(value="problem", required=true) Problem<S> problem,
+      @JsonProperty(value="crossoverOperator", required=true) CrossoverOperator<S> crossoverOperator,
+      @JsonProperty(value="mutationOperator", required=true) MutationOperator<S> mutationOperator) {
     this.problem = problem ;
     this.offset = DEFAULT_OFFSET ;
     populationSize = 100 ;

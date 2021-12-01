@@ -26,7 +26,8 @@ public class NSGAIIIBuilder<S extends Solution<?>> implements AlgorithmBuilder<N
   private SolutionListEvaluator<S> evaluator ;
   
   /** Builder constructor */
-  public NSGAIIIBuilder(Problem<S> problem) {
+  @JsonCreator
+  public NSGAIIIBuilder(@JsonProperty(value="problem", required=true) Problem<S> problem) {
     this.problem = problem ;
     maxIterations = 250 ;
     populationSize = 100 ;

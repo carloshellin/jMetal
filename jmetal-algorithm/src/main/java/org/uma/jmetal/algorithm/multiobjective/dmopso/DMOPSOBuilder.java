@@ -1,5 +1,8 @@
 package org.uma.jmetal.algorithm.multiobjective.dmopso;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.algorithm.AlgorithmBuilder;
 import org.uma.jmetal.problem.doubleproblem.DoubleProblem;
 import org.uma.jmetal.solution.doublesolution.DoubleSolution;
@@ -44,7 +47,8 @@ public class DMOPSOBuilder implements AlgorithmBuilder<DMOPSO> {
 
   private DMOPSOVariant variant;
 
-  public DMOPSOBuilder(DoubleProblem problem) {
+  @JsonCreator
+  public DMOPSOBuilder(@JsonProperty(value="problem", required=true) DoubleProblem problem) {
     this.name = "dMOPSO";
     this.problem = problem;
 

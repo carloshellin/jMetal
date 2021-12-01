@@ -17,7 +17,8 @@ public class PAESBuilder<S extends Solution<?>>  implements AlgorithmBuilder<PAE
 
   private MutationOperator<S> mutationOperator;
 
-  public PAESBuilder(Problem<S> problem) {
+  @JsonCreator
+  public PAESBuilder(@JsonProperty(value="problem", required=true) Problem<S> problem) {
     this.problem = problem;
   }
 

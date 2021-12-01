@@ -1,5 +1,8 @@
 package org.uma.jmetal.algorithm.multiobjective.pesa2;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.algorithm.AlgorithmBuilder;
 import org.uma.jmetal.operator.crossover.CrossoverOperator;
 import org.uma.jmetal.operator.mutation.MutationOperator;
@@ -25,8 +28,10 @@ public class PESA2Builder<S extends Solution<?>> implements AlgorithmBuilder<PES
   /**
    * Constructor
    */
-  public PESA2Builder(Problem<S> problem, CrossoverOperator<S> crossoverOperator,
-      MutationOperator<S> mutationOperator) {
+  @JsonCreator
+  public PESA2Builder(@JsonProperty(value="problem", required=true) Problem<S> problem,
+      @JsonProperty(value="crossoverOperator", required=true) CrossoverOperator<S> crossoverOperator,
+      @JsonProperty(value="mutationOperator", required=true) MutationOperator<S> mutationOperator) {
     this.problem = problem;
     maxEvaluations = 25000;
     populationSize = 100;
