@@ -1,5 +1,8 @@
 package org.uma.jmetal.algorithm.singleobjective.differentialevolution;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.operator.crossover.impl.DifferentialEvolutionCrossover;
 import org.uma.jmetal.operator.selection.impl.DifferentialEvolutionSelection;
 import org.uma.jmetal.problem.doubleproblem.DoubleProblem;

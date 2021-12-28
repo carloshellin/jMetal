@@ -1,6 +1,5 @@
 package org.uma.jmetal.algorithm.multiobjective.abyss;
 
-arator.DominanceComparator;
 import java.util.Arrays;
 import java.util.Comparator;
 
