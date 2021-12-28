@@ -147,4 +147,9 @@ public class NSGAII45<S extends Solution<?>> implements Algorithm<List<S>> {
   public void setWatcher(Watcher watcher) {
     this.watcher = watcher;
   }
+
+  @Override
+  public void setWatcher(Watcher watcher) {
+    this.watcher = watcher;
+  }
 }
