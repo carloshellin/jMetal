@@ -1,5 +1,8 @@
 package org.uma.jmetal.algorithm.multiobjective.paes;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.algorithm.AlgorithmBuilder;
 import org.uma.jmetal.operator.mutation.MutationOperator;
 import org.uma.jmetal.problem.Problem;

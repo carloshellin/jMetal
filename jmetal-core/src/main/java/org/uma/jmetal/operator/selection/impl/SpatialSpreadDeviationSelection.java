@@ -13,15 +13,18 @@
 
 package org.uma.jmetal.operator.selection.impl;
 
+import java.util.Comparator;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.operator.selection.SelectionOperator;
 import org.uma.jmetal.solution.Solution;
 import org.uma.jmetal.util.JMetalException;
 import org.uma.jmetal.util.SolutionListUtils;
 import org.uma.jmetal.util.SolutionUtils;
 import org.uma.jmetal.util.comparator.RankingAndSSDComparator;
-
-import java.util.Comparator;
-import java.util.List;
 
 /**
  * Spatial Spread Deviation selection operator
