@@ -90,7 +90,7 @@ public class GeneticAlgorithm<S extends Solution<?>> extends ComponentBasedEvolu
   }
 
   @Override
-  protected void updateProgress() {
+  public void updateProgress() {
     S bestFitnessSolution = population.stream().min(new ObjectiveComparator<>(0)).get() ;
     attributes.put("BEST_SOLUTION", bestFitnessSolution);
 

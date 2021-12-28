@@ -1,6 +1,7 @@
 package org.uma.jmetal.algorithm.multiobjective.ensemble;
 
 import org.uma.jmetal.algorithm.Algorithm;
+import org.uma.jmetal.algorithm.Watcher;
 import org.uma.jmetal.solution.Solution;
 import org.uma.jmetal.util.JMetalLogger;
 import org.uma.jmetal.util.archive.Archive;
@@ -14,6 +15,8 @@ public class AlgorithmEnsemble<S extends Solution<?>> implements Algorithm<List<
   private List<Algorithm<List<S>>> algorithmList;
   private Archive<S> archive;
   private long totalComputingTime;
+
+  private Watcher watcher;
 
   public AlgorithmEnsemble(List<Algorithm<List<S>>> algorithmList, Archive<S> archive) {
     Check.notNull(algorithmList);
@@ -73,5 +76,10 @@ public class AlgorithmEnsemble<S extends Solution<?>> implements Algorithm<List<
   @Override
   public String getDescription() {
     return "Ensemble of multiobjective algorithms using an external archive";
+  }
+
+  @Override
+  public void setWatcher(Watcher<List<S>> watcher) {
+    this.watcher = watcher;
   }
 }

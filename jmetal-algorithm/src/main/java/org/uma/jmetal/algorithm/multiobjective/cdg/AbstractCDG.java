@@ -100,6 +100,8 @@ public abstract class AbstractCDG<S extends Solution<?>> implements Algorithm<Li
 
   protected CrossoverOperator<S> crossoverOperator;
 
+  private Watcher watcher;
+
   public AbstractCDG(
       Problem<S> problem,
       int populationSize,
@@ -967,6 +969,7 @@ public abstract class AbstractCDG<S extends Solution<?>> implements Algorithm<Li
   public List<S> getResult() {
     return population;
   }
+
 	@Override
 	public void setWatcher(Watcher watcher) {
 		this.watcher = watcher;

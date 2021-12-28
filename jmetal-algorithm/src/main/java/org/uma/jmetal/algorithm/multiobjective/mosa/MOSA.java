@@ -87,12 +87,12 @@ public class MOSA<S extends Solution<?>> extends AbstractEvolutionStrategy<S, Li
   }
 
   @Override
-  protected void initProgress() {
+  public void initProgress() {
     evaluations = 1;
   }
 
   @Override
-  protected void updateProgress() {
+  public void updateProgress() {
     evaluations++;
   }
 

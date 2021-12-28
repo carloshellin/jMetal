@@ -143,42 +143,6 @@ public class NSGAII45<S extends Solution<?>> implements Algorithm<List<S>> {
     return "Nondominated Sorting Genetic Algorithm version II. Version not using the AbstractGeneticAlgorithm template";
   }
 
-  protected void addLastRankedSolutionsToPopulation(Ranking<S> ranking, int rank, List<S> population) {
-    List<S> currentRankedFront = ranking.getSubFront(rank);
-
-    Collections.sort(currentRankedFront, new CrowdingDistanceComparator<S>());
-
-    int i = 0;
-    while (population.size() < populationSize) {
-      population.add(currentRankedFront.get(i));
-      i++;
-    }
-  @Override
-  public void updateProgress() {
-    
-  }
-
-  protected List<S> getNonDominatedSolutions(List<S> solutionList) {
-    return SolutionListUtils.getNonDominatedSolutions(solutionList);
-  @Override
-  public void finishProgress() {
-    
-  }
-
-  @Override public String getName() {
-    return "NSGAII45" ;
-  @Override
-  public void initProgress() {
-    
-  }
-
-  @Override public String getDescription() {
-    return "Nondominated Sorting Genetic Algorithm version II. Version not using the AbstractGeneticAlgorithm template" ;
-  @Override
-  public void updateProgress() {
-    
-  }
-
   @Override
   public void setWatcher(Watcher watcher) {
     this.watcher = watcher;

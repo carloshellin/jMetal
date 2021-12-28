@@ -35,7 +35,8 @@ public class SteadyStateNSGAII<S extends Solution<?>> extends NSGAII<S> {
             selectionOperator, dominanceComparator, new SequentialSolutionListEvaluator<>());
   }
 
-  @Override protected void updateProgress() {
+  @Override
+  public void updateProgress() {
     evaluations ++ ;
   }
 

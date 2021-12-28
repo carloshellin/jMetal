@@ -140,7 +140,7 @@ public class MicroFAME<S extends Solution<?>> extends SteadyStateNSGAII<S> {
   }
 
   @Override
-  protected void updateProgress() {
+  public void updateProgress() {
     evaluations++;
     if (contador_ventana == window_size) {
       for (int x = 0; x < operators_num; x++) {

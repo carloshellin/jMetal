@@ -1,6 +1,7 @@
 package org.uma.jmetal.experimental.componentbasedalgorithm.algorithm;
 
 import org.uma.jmetal.algorithm.Algorithm;
+import org.uma.jmetal.algorithm.Watcher;
 import org.uma.jmetal.experimental.componentbasedalgorithm.catalogue.evaluation.Evaluation;
 import org.uma.jmetal.experimental.componentbasedalgorithm.catalogue.solutionscreation.SolutionsCreation;
 import org.uma.jmetal.solution.Solution;
@@ -39,6 +40,8 @@ public class ComponentBasedRandomSearchAlgorithm<S extends Solution<?>> implemen
   protected NonDominatedSolutionListArchive<S> archive;
 
   private int evaluatedSolutions ;
+
+  private Watcher watcher;
 
   /**
    * Constructor
@@ -157,5 +160,10 @@ public class ComponentBasedRandomSearchAlgorithm<S extends Solution<?>> implemen
 
   public long getCurrentComputingTime() {
     return System.currentTimeMillis() - initTime;
+  }
+
+  @Override
+  public void setWatcher(Watcher<List<S>> watcher) {
+    this.watcher = watcher;
   }
 }

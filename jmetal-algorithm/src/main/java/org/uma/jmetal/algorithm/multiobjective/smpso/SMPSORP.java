@@ -159,13 +159,15 @@ public class SMPSORP
     }
   }
 
-  @Override protected void initProgress() {
+  @Override
+  public void initProgress() {
     iterations = 1;
     currentIteration.reset(1);
     updateLeadersDensityEstimator();
   }
 
-  @Override protected void updateProgress() {
+  @Override
+  public void updateProgress() {
     iterations += 1;
     currentIteration.increment(1); ;
     updateLeadersDensityEstimator();
