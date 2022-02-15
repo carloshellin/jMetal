@@ -57,25 +57,6 @@ public class GeneticAlgorithmBuilder<S extends Solution<?>> implements Algorithm
     this.variant = GeneticAlgorithmVariant.GENERATIONAL ;
   }
 
-  @JsonCreator
-  public GeneticAlgorithmBuilder(@JsonProperty(value="problem", required=true) Problem<S> problem,
-      @JsonProperty(value="crossoverOperator", required=true) CrossoverOperator<S> crossoverOperator,
-      @JsonProperty(value="mutationOperator", required=true) MutationOperator<S> mutationOperator,
-      @JsonProperty(value="comparator", required=true) Comparator<S> comparator) {
-    this.problem = problem;
-    maxEvaluations = 25000;
-    populationSize = 100;
-    this.mutationOperator = mutationOperator ;
-    this.crossoverOperator = crossoverOperator ;
-    this.selectionOperator = defaultSelectionOperator ;
-
-    evaluator = new SequentialSolutionListEvaluator<S>();
-
-    this.variant = GeneticAlgorithmVariant.GENERATIONAL ;
-
-    this.comparator = comparator;
-  }
-
   public GeneticAlgorithmBuilder<S> setMaxEvaluations(int maxEvaluations) {
     this.maxEvaluations = maxEvaluations;
 
@@ -102,6 +83,12 @@ public class GeneticAlgorithmBuilder<S extends Solution<?>> implements Algorithm
 
   public GeneticAlgorithmBuilder<S> setVariant(GeneticAlgorithmVariant variant) {
     this.variant = variant;
+
+    return this;
+  }
+
+  public GeneticAlgorithmBuilder<S> setComparator(Comparator<S> comparator) {
+    this.comparator = comparator;
 
     return this;
   }
