@@ -1,13 +1,16 @@
 package org.uma.jmetal.operator.localsearch.impl;
 
+import java.util.Comparator;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.uma.jmetal.operator.localsearch.LocalSearchOperator;
 import org.uma.jmetal.operator.mutation.MutationOperator;
 import org.uma.jmetal.problem.Problem;
 import org.uma.jmetal.solution.Solution;
 import org.uma.jmetal.util.pseudorandom.JMetalRandom;
 import org.uma.jmetal.util.pseudorandom.RandomGenerator;
-
-import java.util.Comparator;
 
 /**
  * This class implements a basic local search operator based in the use of a mutation operator.
@@ -35,8 +38,11 @@ public class BasicLocalSearch<S extends Solution<?>> implements LocalSearchOpera
    * @param comparator comparator to determine which solution is the best
    * @param problem problem to resolve
    */
-  public BasicLocalSearch(int improvementRounds, MutationOperator<S> mutationOperator,
-      Comparator<S> comparator, Problem<S> problem) {
+  @JsonCreator
+  public BasicLocalSearch(@JsonProperty(value="improvementRounds", required=true) int improvementRounds,
+    @JsonProperty(value="mutationOperator", required=true) MutationOperator<S> mutationOperator,
+    @JsonProperty(value="comparator", required=true) Comparator<S> comparator,
+    @JsonProperty(value="problem", required=true) Problem<S> problem) {
     this(improvementRounds, mutationOperator, comparator, problem,
         () -> JMetalRandom.getInstance().nextDouble());
   }
