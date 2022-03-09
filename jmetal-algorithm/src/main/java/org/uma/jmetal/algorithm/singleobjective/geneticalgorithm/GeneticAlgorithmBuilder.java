@@ -1,5 +1,6 @@
 package org.uma.jmetal.algorithm.singleobjective.geneticalgorithm;
 
+import java.util.Comparator;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -32,6 +33,7 @@ public class GeneticAlgorithmBuilder<S extends Solution<?>> implements Algorithm
   private MutationOperator<S> mutationOperator;
   private SelectionOperator<List<S>, S> selectionOperator;
   private SolutionListEvaluator<S> evaluator;
+  private Comparator<S> comparator;
 
   private GeneticAlgorithmVariant variant ;
   private SelectionOperator<List<S>, S> defaultSelectionOperator = new BinaryTournamentSelection<S>() ;
@@ -85,10 +87,16 @@ public class GeneticAlgorithmBuilder<S extends Solution<?>> implements Algorithm
     return this;
   }
 
+  public GeneticAlgorithmBuilder<S> setComparator(Comparator<S> comparator) {
+    this.comparator = comparator;
+
+    return this;
+  }
+
   public Algorithm<S> build() {
     if (variant == GeneticAlgorithmVariant.GENERATIONAL) {
       return new GenerationalGeneticAlgorithm<S>(problem, maxEvaluations, populationSize,
-          crossoverOperator, mutationOperator, selectionOperator, evaluator);
+          crossoverOperator, mutationOperator, selectionOperator, evaluator, comparator);
     } else if (variant == GeneticAlgorithmVariant.STEADY_STATE) {
       return new SteadyStateGeneticAlgorithm<S>(problem, maxEvaluations, populationSize,
           crossoverOperator, mutationOperator, selectionOperator);
