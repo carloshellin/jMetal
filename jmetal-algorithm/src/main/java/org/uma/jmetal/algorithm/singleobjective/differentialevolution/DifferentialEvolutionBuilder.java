@@ -3,6 +3,8 @@ package org.uma.jmetal.algorithm.singleobjective.differentialevolution;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import org.uma.jmetal.algorithm.Algorithm;
+import org.uma.jmetal.algorithm.AlgorithmBuilder;
 import org.uma.jmetal.operator.crossover.impl.DifferentialEvolutionCrossover;
 import org.uma.jmetal.operator.selection.impl.DifferentialEvolutionSelection;
 import org.uma.jmetal.problem.doubleproblem.DoubleProblem;
@@ -15,7 +17,7 @@ import org.uma.jmetal.util.evaluator.impl.SequentialSolutionListEvaluator;
  * DifferentialEvolutionBuilder class
  * @author Antonio J. Nebro <antonio@lcc.uma.es>
  */
-public class DifferentialEvolutionBuilder {
+public class DifferentialEvolutionBuilder implements AlgorithmBuilder<Algorithm<DoubleSolution>> {
   private DoubleProblem problem;
   private int populationSize;
   private int maxEvaluations;
