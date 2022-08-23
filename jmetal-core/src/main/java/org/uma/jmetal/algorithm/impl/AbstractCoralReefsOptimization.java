@@ -34,7 +34,7 @@ public abstract class AbstractCoralReefsOptimization<S, R>
 	protected MutationOperator<S> mutationOperator;
 	protected Comparator<S> comparator;
 
-	protected Watcher watcher;
+	protected Watcher<R> watcher;
 
 	private int N, M; // Grid sizes
 	private double rho; // Percentage of occupied reef
@@ -270,6 +270,7 @@ public abstract class AbstractCoralReefsOptimization<S, R>
 		coordinates = generateCoordinates();
 
 		initProgress();
+		watcher.initProgress(getResult());
 		while (!isStoppingConditionReached()) {
 			broadcastSpawners = selectBroadcastSpawners(population);
 
@@ -302,6 +303,7 @@ public abstract class AbstractCoralReefsOptimization<S, R>
 			population = depredation(population, coordinates);
 
 			updateProgress();
+			watcher.updateProgress(getResult());
 		}
 
 	}
@@ -310,7 +312,7 @@ public abstract class AbstractCoralReefsOptimization<S, R>
 	public abstract R getResult();
 
 	@Override
-	public void setWatcher(Watcher watcher) {
+	public void setWatcher(Watcher<R> watcher) {
 	  this.watcher = watcher;
 	}
 }

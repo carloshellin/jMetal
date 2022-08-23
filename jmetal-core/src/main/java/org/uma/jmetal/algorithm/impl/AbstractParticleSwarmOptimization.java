@@ -20,7 +20,7 @@ public abstract class AbstractParticleSwarmOptimization<S, Result> implements Al
     this.swarm = swarm;
   }
 
-  protected Watcher watcher;
+  protected Watcher<Result> watcher;
 
   public abstract void initProgress() ;
   public abstract void updateProgress() ;
@@ -57,11 +57,12 @@ public abstract class AbstractParticleSwarmOptimization<S, Result> implements Al
       updateLeaders(swarm) ;
       updateParticlesMemory(swarm) ;
       updateProgress();
+      watcher.updateProgress(getResult());
     }
   }
 
   @Override
-  public void setWatcher(Watcher watcher) {
+  public void setWatcher(Watcher<Result> watcher) {
     this.watcher = watcher;
   }
 }

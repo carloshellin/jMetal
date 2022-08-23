@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import org.uma.jmetal.operator.crossover.CrossoverOperator;
 import org.uma.jmetal.solution.doublesolution.DoubleSolution;
 import org.uma.jmetal.solution.util.repairsolution.RepairDoubleSolution;
@@ -17,6 +14,9 @@ import org.uma.jmetal.util.errorchecking.JMetalException;
 import org.uma.jmetal.util.pseudorandom.BoundedRandomGenerator;
 import org.uma.jmetal.util.pseudorandom.JMetalRandom;
 import org.uma.jmetal.util.pseudorandom.RandomGenerator;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * Differential evolution crossover operator
@@ -30,6 +30,7 @@ import org.uma.jmetal.util.pseudorandom.RandomGenerator;
  * (best/1/exp) - current-to-rand/1 (current-to-best/1) - current-to-rand/1/bin
  * (current-to-best/1/bin) - current-to-rand/1/exp (current-to-best/1/exp)
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 @SuppressWarnings("serial")
 public class DifferentialEvolutionCrossover implements CrossoverOperator<DoubleSolution> {
   public enum DE_VARIANT {
@@ -84,6 +85,7 @@ public class DifferentialEvolutionCrossover implements CrossoverOperator<DoubleS
   /**
    * Constructor
    */
+  @JsonCreator
   public DifferentialEvolutionCrossover() {
     this(DEFAULT_CR, DEFAULT_F, DEFAULT_DE_VARIANT);
   }
@@ -95,10 +97,7 @@ public class DifferentialEvolutionCrossover implements CrossoverOperator<DoubleS
    * @param f
    * @param variant
    */
-  @JsonCreator
-  public DifferentialEvolutionCrossover(@JsonProperty(value="cr", required=true) double cr,
-      @JsonProperty(value="f", required=true) double f,
-      @JsonProperty(value="variant", required=true) DE_VARIANT variant) {
+  public DifferentialEvolutionCrossover(double cr, double f, DE_VARIANT variant) {
     this(
             cr,
             f,
